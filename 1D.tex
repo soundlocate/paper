@@ -1,8 +1,29 @@
 \section{Eindimensionale Richtungsbestimmung} \todo{Robin: Bleibt, Ortung -> Richtung}
   Um den Algorithmus, der aus den Phasendifferenzen den Ort zurückrechnet zu entwickeln haben wir mit der
-einfachsten Stufe der Ortung, die eindimensionale Ortung, angefangen:
-    \begin{figure}
-        \centering
-        \includegraphics[width=\linewidth]{img/skizze1d}
-        \caption{Skizze einer eindimensionalen Ortung}
-    \end{figure}
+einfachsten Stufe der Richtungsbestimmung, der eindimensionale Richtungsbestimmung, angefangen:
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{img/skizze1d}
+  \caption{Skizze einer eindimensionalen Richtungsbestimmung}
+\label{fig:skizz1d}
+\end{figure}
+
+In Abbildung \ref{fig:skizz1d} sieht man zwei Mikrofone $M_1$ und $M_2$, die den Schall der Schallquelle $S$ aufnehmen. Dadurch, dass $M_2$ weiter von der Schallquelle entfernt ist als $M_1$ braucht der Schall länger um $M_2$ zu erreichen. Wenn man die von den Mikrofonen aufgenommenen Schallwellen vergleicht sieht man dies in Form des rot markierten Gangunterschieds:
+\begin{figure}[H]
+\input{img/welle1d}
+\caption{Vergleich der von den beiden Mikrofonen aufgenommenen Wellen}
+\label{fig:welle1d}
+\end{figure}
+Wir können von den von den Mikrofonen aufgenommenen Wellen nur die Phasenverschiebung bestimmen. Deswegen können wir den Gangunterschied nicht direkt bestimmen, er setzt sich aus einer unbekannten Anzahl von kompletten Schwingungen und der Differenz der Phasenverschiebungen zusammen. Man erhält für die Differenz der Abstände einer Schallquelle $S$ von zwei Mikrofonen $M_1$ und $M_2$ mit der gemessenen Phase $\phi_1$ und $\phi_2$: $$n\lambda + \Delta{x_{12}}$$ $\lambda$ ist hierbei die Wellenlänge, $n$ die unbekannte Anzahl an Schwingungen und $\Delta{x_{12}}$ der Gangunterschied, dem man aus dem Phasenunterschied bestimmen kann:
+$$\Delta{x_{ij}} = \frac{c(\phi_i - \phi_j)}{{2\pi}f}\:\textrm{mit}\:i = 1\:\textrm{und}\:j = 2$$
+$c$ ist die Schallgeschwindigkeit und $f$ die Frequenz des Schallwelle.
+Jedes Mikrofon $M_i$ hat einen zugehörigen Ortsvektor $\vec{m}_i = \begin{pmatrix} m_{i_x} \\ m_{i_y}  \end{pmatrix}$, die Schallquelle hat den Ortsvektor $\vec{s} = \begin{pmatrix} {s_x} \\ {s_y}  \end{pmatrix}$. Der Abstand eines Mikrofons von der Schallquelle ist gegeben durch den Satz des Pythagoras:
+$$\abs{\vec{m}_i - \vec{s}} = \sqrt{{(m_{i_x} - s_x)}^2 + {(m_{i_y} - s_y)}^2}$$
+Damit erhält man für die Differenz der Abstände der Mikrofone die Gleichung
+$$\abs{\vec{m}_1 - \vec{s}} - \abs{\vec{m}_2 - \vec{s}} = n\lambda + \Delta{x_{12}}$$
+$$\sqrt{{(m_{1_x} - s_x)}^2 + {(m_{1_y} - s_y)}^2} - \sqrt{{(m_{2_x} - s_x)}^2 + {(m_{2_y} - s_y)}^2} = n\lambda + \Delta{x_{12}}$$$s_y$ ist konstant für alle möglichen Positionen der Schallquelle. Dadurch hat die Gleichung aber immer noch zwei Unbekannte, $s_x$ und $n$, und ist deswegen nicht eindeutig lösbar. Man kann eine eindeutig lösbare Gleichung erhalten, wenn der Abstand der Mikrofone maximal so groß wie die Wellenlänge ist. Dann macht die Welle maximal eine ganze Schwingung mehr zu einem Mikrofon als zu dem anderen und die unbekannte Anzahl an Schwingungen $n\lambda$ entfällt. Dann hat die Gleichung nur eine Unbekannte, $s_x$
+$$\abs{\vec{m}_1 - \vec{s}} - \abs{\vec{m}_2 - \vec{s}} = \Delta{x_{12}}$$
+$$\sqrt{{(m_{1_x} - s_x)}^2 + {(m_{1_y} - s_y)}^2} - \sqrt{{(m_{2_x} - s_x)}^2 + {(m_{2_y} - s_y)}^2} = \Delta{x_{12}}$$
+Den dadurch bestimmten Ortvektor kann man dann in eine Gerade $g$ umwandeln, die der Richtung, in der sich die Schallquelle befindet, entspricht:
+$$g: \vec{x} = r \cdot \vec{s}$$
+Da eine eindimensionale Ortung sehr einfach und ohne großen Anwendungsbereich ist haben wir diesen Algorithmus anschließend auf zwei Dimensionen übertragen.

@@ -1,3 +1,64 @@
-\section{Dreidimensionale Ortung} \todo{Robin: Neu, numerische mit least squares}
-      \subsection{erweiterterung der Theorie}
-      \subsection{Numerisches Lösen des Gleichugssystems}
+\section{Dreidimensionale Richtungsbestimmung} \todo{Robin: Neu, numerische mit least squares}
+\subsection{Erweiterterung der Theorie}
+Um die Richtungsbestimmung dann auf drei Dimensionen zu erweitern müssen zuerst die Ortsvektoren der Mikrophone und der der Schallquelle auf drei Dimensionen erweitert werden: $$\vec{m}_i = \begin{pmatrix}
+m_{i_x} \\
+m_{i_y} \\
+m_{i_z}
+\end{pmatrix}$$
+$$\vec{s} = \begin{pmatrix}
+{s_x} \\
+{s_y} \\
+{s_z}
+\end{pmatrix}$$
+Mit den angepassten Ortsvektoren erhält man eine neue Formel für die Abstandsberechnung zwischen einem Mikrofon und der Schallquelle:
+$$\abs{\vec{m}_i - \vec{s}} = \sqrt{{(m_{i_x} - s_x)}^2 + {(m_{i_y} - s_y)}^2 + {(m_{i_z} - s_z)}^2}$$
+Man erhält eine weitere Unbekannte, $m_{i_z}$. Dadurch wird für die dreidimensionale Ortung ein viertes Mikrofon benötigt. Mit dem vierten Mikrofon erhält man eine dritte Gleichung, die den Gangunterschied zwischen dem ersten und dem vierten Mikrofon enthält, dadurch wird das Gleichungssystem wieder eindeutig lösbar:
+$$\begin{cases}
+\abs{\vec{m}_1 - \vec{s}} - \abs{\vec{m}_2 - \vec{s}} = \Delta{x_{12}} \\
+\abs{\vec{m}_1 - \vec{s}} - \abs{\vec{m}_3 - \vec{s}} = \Delta{x_{13}} \\
+\abs{\vec{m}_1 - \vec{s}} - \abs{\vec{m}_4 - \vec{s}} = \Delta{x_{14}}
+\end{cases}$$
+$$\begin{cases}
+\sqrt{{(m_{1_x} - s_x)}^2 + {(m_{1_y} - s_y)}^2} - \sqrt{{(m_{2_x} - s_x)}^2 + {(m_{2_y} - s_y)}^2 + {(m_{2_z} - s_z)}^2} = \Delta{x_{12}} \\
+\sqrt{{(m_{1_x} - s_x)}^2 + {(m_{1_y} - s_y)}^2} - \sqrt{{(m_{3_x} - s_x)}^2 + {(m_{3_y} - s_y)}^2 + {(m_{3_z} - s_z)}^2} = \Delta{x_{13}} \\
+\sqrt{{(m_{1_x} - s_x)}^2 + {(m_{1_y} - s_y)}^2} - \sqrt{{(m_{4_x} - s_x)}^2 + {(m_{4_y} - s_y)}^2 + {(m_{4_z} - s_z)}^2} = \Delta{x_{14}}
+\end{cases}$$
+\subsection{Numerische Lösung des Gleichugssystems}
+Schon für zwei Dimensionen war die analytische Lösung des Gleichungssystem sehr kompliziert. Für drei Dimensionen war die Lösung über 300Mb groß. Dadurch konnten wir sie nur durch Einschränkung der Mikrofon-Positionen verwenden. Um diese Einschränkung zu umgehen lösen wir das Gleichungssystem numerisch. Dazu verwenden wir das Newtonverfahren. Dazu gehen wir von einer Startposition $\vec{s}_0$ aus, die iterativ verbessert wird. Als Startposition haben wir das Zentrum der Mikrofone gewählt. Für den Iterationsschitt $i$ erhält man die neue Positionen mit $\vec{s}_{i + 1} = \vec{s}_i + \vec{\Delta{s}}_i$. Das Gleichungssystem für die dreidimensionale Ortung lässt sich umschreiben zu:
+$$\begin{cases}
+\sqrt{(m_{1_x} - s_x)^2 + (m_{1_y} - s_y)^2 + (m_{1_z} - s_z)^2} - d = 0 \\
+\sqrt{(m_{2_x} - s_x)^2 + (m_{2_y} - s_y)^2 + (m_{2_z} - s_z)^2} - d = \Delta{x_{12}} \\
+\sqrt{(m_{3_x} - s_x)^2 + (m_{3_y} - s_y)^2 + (m_{3_z} - s_z)^2} - d = \Delta{x_{13}} \\
+\sqrt{(m_{4_x} - s_x)^2 + (m_{4_y} - s_y)^2 + (m_{4_z} - s_z)^2} - d = \Delta{x_{14}} \\
+\end{cases}$$
+Um dieses Gleichungssystem zu linearisieren eignet sich die Taylorentwicklung bis zur ersten Ordung. Mit dieser erhält man:
+$$\begin{cases}
+-r_{1_{ca}} = \frac{s_{i_x} - m_{1_x}}{r_{1_{ca}}} \cdot \vec{\Delta{s}}_{i_x} + \frac{s_{i_y} - m_{1_y}}{r_{1_{ca}}} \cdot \vec{\Delta{s}}_{i_y} + \frac{s_{i_z} - m_{1_z}}{r_{1_{ca}}} \cdot \vec{\Delta{s}}_{i_z} - d \\
+\Delta{x_{12}} - r_{2_{ca}} = \frac{s_{i_x} - m_{2_x}}{r_{2_{ca}}} \cdot \vec{\Delta{s}}_{i_x} + \frac{s_{i_y} - m_{2_y}}{r_{2_{ca}}} \cdot \vec{\Delta{s}}_{i_y} + \frac{s_{i_z} - m_{2_z}}{r_{2_{ca}}} \cdot \vec{\Delta{s}}_{i_z} - d \\
+\Delta{x_{13}} - r_{3_{ca}} = \frac{s_{i_x} - m_{3_x}}{r_{3_{ca}}} \cdot \vec{\Delta{s}}_{i_x} + \frac{s_{i_y} - m_{3_y}}{r_{3_{ca}}} \cdot \vec{\Delta{s}}_{i_y} + \frac{s_{i_z} - m_{3_z}}{r_{3_{ca}}} \cdot \vec{\Delta{s}}_{i_z} - d \\
+\Delta{x_{14}} - r_{4_{ca}} = \frac{s_{i_x} - m_{4_x}}{r_{4_{ca}}} \cdot \vec{\Delta{s}}_{i_x} + \frac{s_{i_y} - m_{4_y}}{r_{4_{ca}}} \cdot \vec{\Delta{s}}_{i_y} + \frac{s_{i_z} - m_{4_z}}{r_{4_{ca}}} \cdot \vec{\Delta{s}}_{i_z} - d \\
+\end{cases}$$
+$$r_{i_{ca}} = \sqrt{(m_{i_x} - s_{i_x})^2 + (m_{i_y} - s_{i_y})^2 + (m_{i_z} - s_{i_z})^2}$$
+
+$$
+\begin{bmatrix}
+\Delta{x} \\
+\Delta{y} \\
+\Delta{z} \\
+d \\
+\end{bmatrix}
+=
+{\begin{bmatrix}
+\frac{x_{ca} - m_{1_x}}{r_{1_{ca}}} & \frac{y_{ca} - m_{1_y}}{r_{1_{ca}}} & \frac{z_{ca} - m_{1_z}}{r_{1_{ca}}} & -1 \\
+\frac{x_{ca} - m_{2_x}}{r_{2_{ca}}} & \frac{y_{ca} - m_{2_y}}{r_{2_{ca}}} & \frac{z_{ca} - m_{1_z}}{r_{2_{ca}}} & -1 \\
+\frac{x_{ca} - m_{3_x}}{r_{3_{ca}}} & \frac{y_{ca} - m_{3_y}}{r_{3_{ca}}} & \frac{z_{ca} - m_{1_z}}{r_{3_{ca}}} & -1 \\
+\frac{x_{ca} - m_{4_x}}{r_{4_{ca}}} & \frac{y_{ca} - m_{4_y}}{r_{4_{ca}}} & \frac{z_{ca} - m_{1_z}}{r_{4_{ca}}} & -1 \\
+\end{bmatrix}}^{-1}
+\cdot
+\begin{bmatrix}
+-r_{1_{ca}}\\
+x_2 - x_1 - r_{2_{ca}}\\
+x_3 - x_1 - r_{3_{ca}}\\
+x_4 - x_1 - r_{4_{ca}}
+\end{bmatrix}
+$$
