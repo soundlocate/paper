@@ -26,16 +26,19 @@
   \setcounter{page}{1}
   %begin the content
 
-  \include{problematik}
-  \include{existing}
-  \include{konzept}
-  \include{implementation}
-  \include{1D}
-  \include{2D}
-  \include{3D}
-  \include{eval}
-  \include{ausblick}
-  \include{fazit}
+  \begingroup
+    \let\clearpage\relax
+    \include{problematik}
+    \include{existing}
+    \include{konzept}
+    \include{implementation}
+    \include{1D}
+    \include{2D}
+    \include{3D}
+    \include{eval}
+    \include{ausblick}
+    \include{fazit}
+  \endgroup
 
   \pagebreak % Quellen und co
   \pagenumbering{roman}
