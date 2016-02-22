@@ -82,45 +82,45 @@
 \begin{picture}(7200.00,5040.00)%
     \gplgaddtomacro\gplbacktext{%
       \colorrgb{0.50,0.50,0.50}%
-      \put(946,1111){\makebox(0,0)[r]{\strut{}$-0.6$}}%
+      \put(682,704){\makebox(0,0)[r]{\strut{}$0$}}%
       \colorrgb{0.50,0.50,0.50}%
-      \put(946,1654){\makebox(0,0)[r]{\strut{}$-0.4$}}%
+      \put(682,1286){\makebox(0,0)[r]{\strut{}$5$}}%
       \colorrgb{0.50,0.50,0.50}%
-      \put(946,2197){\makebox(0,0)[r]{\strut{}$-0.2$}}%
+      \put(682,1867){\makebox(0,0)[r]{\strut{}$10$}}%
       \colorrgb{0.50,0.50,0.50}%
-      \put(946,2740){\makebox(0,0)[r]{\strut{}$0$}}%
+      \put(682,2449){\makebox(0,0)[r]{\strut{}$15$}}%
       \colorrgb{0.50,0.50,0.50}%
-      \put(946,3282){\makebox(0,0)[r]{\strut{}$0.2$}}%
+      \put(682,3030){\makebox(0,0)[r]{\strut{}$20$}}%
       \colorrgb{0.50,0.50,0.50}%
-      \put(946,3825){\makebox(0,0)[r]{\strut{}$0.4$}}%
+      \put(682,3612){\makebox(0,0)[r]{\strut{}$25$}}%
       \colorrgb{0.50,0.50,0.50}%
-      \put(946,4368){\makebox(0,0)[r]{\strut{}$0.6$}}%
+      \put(682,4193){\makebox(0,0)[r]{\strut{}$30$}}%
       \colorrgb{0.50,0.50,0.50}%
-      \put(1650,484){\makebox(0,0){\strut{}$-0.6$}}%
+      \put(682,4775){\makebox(0,0)[r]{\strut{}$35$}}%
       \colorrgb{0.50,0.50,0.50}%
-      \put(2414,484){\makebox(0,0){\strut{}$-0.4$}}%
+      \put(814,484){\makebox(0,0){\strut{}$100$}}%
       \colorrgb{0.50,0.50,0.50}%
-      \put(3177,484){\makebox(0,0){\strut{}$-0.2$}}%
+      \put(1812,484){\makebox(0,0){\strut{}$200$}}%
       \colorrgb{0.50,0.50,0.50}%
-      \put(3941,484){\makebox(0,0){\strut{}$0$}}%
+      \put(2810,484){\makebox(0,0){\strut{}$300$}}%
       \colorrgb{0.50,0.50,0.50}%
-      \put(4704,484){\makebox(0,0){\strut{}$0.2$}}%
+      \put(3809,484){\makebox(0,0){\strut{}$400$}}%
       \colorrgb{0.50,0.50,0.50}%
-      \put(5467,484){\makebox(0,0){\strut{}$0.4$}}%
+      \put(4807,484){\makebox(0,0){\strut{}$500$}}%
       \colorrgb{0.50,0.50,0.50}%
-      \put(6231,484){\makebox(0,0){\strut{}$0.6$}}%
+      \put(5805,484){\makebox(0,0){\strut{}$600$}}%
+      \colorrgb{0.50,0.50,0.50}%
+      \put(6803,484){\makebox(0,0){\strut{}$700$}}%
     }%
     \gplgaddtomacro\gplfronttext{%
       \csname LTb\endcsname%
-      \put(176,2739){\rotatebox{-270}{\makebox(0,0){\strut{}y [m]}}}%
-      \put(3940,154){\makebox(0,0){\strut{}x [m]}}%
+      \put(176,2739){\rotatebox{-270}{\makebox(0,0){\strut{}Durchschnittliche Abweichung [°]}}}%
+      \put(3808,154){\makebox(0,0){\strut{}Frequenz [Hz]}}%
       \csname LTb\endcsname%
-      \put(5816,4602){\makebox(0,0)[r]{\strut{}Bestimmte Richtung}}%
-      \csname LTb\endcsname%
-      \put(5816,4382){\makebox(0,0)[r]{\strut{}Tatsächliche Richtung}}%
+      \put(5816,4602){\makebox(0,0)[r]{\strut{}Durchschnittliche Abweichung}}%
     }%
     \gplbacktext
-    \put(0,0){\includegraphics{img/real}}%
+    \put(0,0){\includegraphics{img/freq_sweep}}%
     \gplfronttext
   \end{picture}%
 \endgroup
