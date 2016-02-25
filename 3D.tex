@@ -1,6 +1,6 @@
 \section{Dreidimensionale Richtungsbestimmung} \todo{Durchlesen + überprüfen}
 \subsection{Erweiterung der Theorie}
-Um die Richtungsbestimmung dann auf drei Dimensionen zu erweitern müssen zuerst die Ortsvektoren der Mikrophone und der der Schallquelle auf drei Dimensionen erweitert werden: $$\vec{m}_i = \begin{pmatrix}
+Um die Richtungsbestimmung dann auf drei Dimensionen zu erweitern, müssen zuerst die Ortsvektoren der Mikrophone und der der Schallquelle auf drei Dimensionen erweitert werden: $$\vec{m}_i = \begin{pmatrix}
 m_{i_x} \\
 m_{i_y} \\
 m_{i_z}
@@ -24,14 +24,14 @@ $$\begin{cases}
 \sqrt{{(m_{1_x} - s_x)}^2 + {(m_{1_y} - s_y)}^2} - \sqrt{{(m_{4_x} - s_x)}^2 + {(m_{4_y} - s_y)}^2 + {(m_{4_z} - s_z)}^2} = \Delta{x_{14}}
 \end{cases}$$
 \subsection{Numerische Lösung des Gleichungssystems}
-Schon für zwei Dimensionen war die analytische Lösung des Gleichungssystem sehr kompliziert. Für drei Dimensionen war die Lösung über 300Mb groß. Dadurch konnten wir sie nur durch Einschränkung der Mikrofon-Positionen verwenden. Um diese Einschränkung zu umgehen lösen wir das Gleichungssystem numerisch. Dazu verwenden wir das Newtonverfahren. Dazu gehen wir von einer Startposition $\vec{s}_0$ aus, die iterativ verbessert wird. Als Startposition haben wir das Zentrum der Mikrofone gewählt. Für den Iterationsschitt $i$ erhält man die neue Positionen mit $\vec{s}_{i + 1} = \vec{s}_i + \vec{\Delta{s}}_i$. Das Gleichungssystem für die dreidimensionale Ortung lässt sich umschreiben zu:
+Schon für zwei Dimensionen ist die analytische Lösung des Gleichungssystem sehr kompliziert. Für drei Dimensionen ist die Lösung über 300Mb groß. Dadurch können wir sie nur durch Einschränkung der Mikrofon-Positionen verwenden. Um diese Einschränkung zu umgehen, lösen wir das Gleichungssystem numerisch. Dazu verwenden wir das Newtonverfahren. Dazu gehen wir von einer Startposition $\vec{s}_0$ aus, die iterativ verbessert wird. Als Startposition haben wir das Zentrum der Mikrofone gewählt. Für den Iterationsschritt $i$ erhält man die neue Positionen mit $\vec{s}_{i + 1} = \vec{s}_i + \vec{\Delta{s}}_i$. Das Gleichungssystem für die dreidimensionale Ortung lässt sich umschreiben zu:
 $$\begin{cases}
 \sqrt{(m_{1_x} - s_x)^2 + (m_{1_y} - s_y)^2 + (m_{1_z} - s_z)^2} - d = 0 \\
 \sqrt{(m_{2_x} - s_x)^2 + (m_{2_y} - s_y)^2 + (m_{2_z} - s_z)^2} - d = \Delta{x_{12}} \\
 \sqrt{(m_{3_x} - s_x)^2 + (m_{3_y} - s_y)^2 + (m_{3_z} - s_z)^2} - d = \Delta{x_{13}} \\
 \sqrt{(m_{4_x} - s_x)^2 + (m_{4_y} - s_y)^2 + (m_{4_z} - s_z)^2} - d = \Delta{x_{14}} \\
 \end{cases}$$
-Um dieses Gleichungssystem zu linearisieren eignet sich die Taylorentwicklung bis zur ersten Ordnung. Mit dieser erhält man:
+Um dieses Gleichungssystem zu linearisieren, eignet sich die Taylorentwicklung bis zur ersten Ordnung. Mit dieser erhält man:
 $$\begin{cases}
 -r_{1_{ca}} = \frac{s_{i_x} - m_{1_x}}{r_{1_{ca}}} \cdot \vec{\Delta{s}}_{i_x} + \frac{s_{i_y} - m_{1_y}}{r_{1_{ca}}} \cdot \vec{\Delta{s}}_{i_y} + \frac{s_{i_z} - m_{1_z}}{r_{1_{ca}}} \cdot \vec{\Delta{s}}_{i_z} - d \\
 \Delta{x_{12}} - r_{2_{ca}} = \frac{s_{i_x} - m_{2_x}}{r_{2_{ca}}} \cdot \vec{\Delta{s}}_{i_x} + \frac{s_{i_y} - m_{2_y}}{r_{2_{ca}}} \cdot \vec{\Delta{s}}_{i_y} + \frac{s_{i_z} - m_{2_z}}{r_{2_{ca}}} \cdot \vec{\Delta{s}}_{i_z} - d \\
@@ -63,5 +63,5 @@ $$
 \end{bmatrix}
 $$
 
-Für die Berechnung der Inverse der Matrix gibt es viele verschiedene Methoden, wir benutzen die Singulärwertszerlegung. Die numerische Lösung des Gleichungssystems benötigt eine initiale Position, für die die Mitte der Mikrofone verwendet wird. Wenn allerdings bereits eine alte Position für die vorliegende Frequenz bekannt ist, wird diese alte Position als Startwert der Iteration verwendet, da dadurch, wenn sich die Position der Schallquelle nicht geändert hat, die Iteration schneller konvergiert. Als Konvergenzkriterium verwenden wir $\abs{\vec{\Delta{s}}_i} < 0.0001m$. Da das Newtonverfahren keine garantierte Konvergenz hat wird die Iteration nach $50$ Iterationsschitten abgebrochen.
-Ein Vorteil der numerischen Lösung ist, dass sie leicht auf beliebig viele Mikrofone erweitert werden kann. Das Gleichungssystem wird überbestimmt, wenn man mehr als vier Mikrofone verwendet, aber indem man die Methode der kleinsten Quadrate auf die Berechnung von $\vec{\Delta{s}}_i$ anwendet erhält man den Ort, an dem die Summe der Fehlerquadrate für alle Mikrofone am geringsten ist, es also am wahrscheinlichsten ist, dass sich die Schallquelle wirklich dort befindet. Außerdem kann man mit mehr Mikrofonen die Richtungsbestimmung auch unabhängig von der Schallgeschwindigkeit machen, denn diese kann als eine weitere Variable eingeführt werden.
+Für die Berechnung der Inverse der Matrix gibt es viele verschiedene Methoden, wir benutzen die Singulärwertszerlegung. Die numerische Lösung des Gleichungssystems benötigt eine initiale Position, für die die Mitte der Mikrofone verwendet wird. Wenn allerdings bereits eine alte Position für die vorliegende Frequenz bekannt ist, wird diese alte Position als Startwert der Iteration verwendet, da dadurch, wenn sich die Position der Schallquelle nicht geändert hat, die Iteration schneller konvergiert. Als Konvergenzkriterium verwenden wir $\abs{\vec{\Delta{s}}_i} < 0.0001m$. Da das Newtonverfahren keine garantierte Konvergenz hat, wird die Iteration nach $50$ Iterationsschritten abgebrochen.
+Ein Vorteil der numerischen Lösung ist, dass sie leicht auf beliebig viele Mikrofone erweitert werden kann. Das Gleichungssystem wird überbestimmt, wenn man mehr als vier Mikrofone verwendet, aber indem man die Methode der kleinsten Quadrate auf die Berechnung von $\vec{\Delta{s}}_i$ anwendet, erhält man den Ort, an dem die Summe der Fehlerquadrate für alle Mikrofone am geringsten ist, es also am wahrscheinlichsten ist, dass sich die Schallquelle wirklich dort befindet. Außerdem kann man mit mehr Mikrofonen die Richtungsbestimmung auch unabhängig von der Schallgeschwindigkeit machen, denn diese kann als eine weitere Variable eingeführt werden.
