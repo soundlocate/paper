@@ -11,16 +11,16 @@ $$\begin{cases}
 \end{cases}$$
 Graphisch veranschaulicht entspricht dieses Gleichungssystem der Suche nach dem Schnittpunkt von zwei halben Hyperbeln um zwei der Mikrofone
 \begin{figure}[H]
-  \includegraphics[width=\linewidth]{img/geogebra}
+  \includegraphics[width=\linewidth]{img/skizze1d}
   \caption{Veranschaulichung des Gleichungssystems durch den Schnittpunkt von zwei Hyperbeln, die roten Punkte stellen die Mikrofone dar und der grüne Punkt die Schallquelle}
 \end{figure}
 
 \subsection{Analytische Lösung des Gleichungssystems}
 Dieses Gleichungssystem haben wir mit Hilfe des Computer Algebra Systems \textit{Wolfram Mathematica}\cite{mathematica} nach $\vec{s}$ aufgelöst:
-\begin{lstlisting}[language=Mathematica,caption={Befehl um das Gleichungsystem in \textit{Mathematica} zu lösen}]
+\begin{lstlisting}[language=Mathematica,caption={Befehl um das Gleichungssystem in \textit{Mathematica} zu lösen}]
   Solve[{
     Sqrt[(m1x - sx)^2 + (m1y - sy)^2] - Sqrt[(m2x - sx)^2 + (m2y - sy)^2] = dx12,
     Sqrt[(m1x - sx)^2 + (m1y - sy)^2] - Sqrt[(m3x - sx)^2 + (m3y - sy)^2] = dx13,}
   {sx, sy}]
 \end{lstlisting}
-Da das Gleichungssystem nicht linear ist ist die Lösung sehr kompliziert, gedruckt entspricht sie fünf Seiten. \textit{Mathematica} findet für dieses Gleichungssystem außerdem zwei Lösungen, man erhält also zwei mögliche Richtungen.
+Da das Gleichungssystem nicht linear ist ist die Lösung sehr kompliziert, gedruckt entspricht sie fünf Seiten. \textit{Mathematica} findet für dieses Gleichungssystem außerdem zwei allgemeine reelle Lösungen, man erhält also zwei mögliche Richtungen.

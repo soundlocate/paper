@@ -1,10 +1,10 @@
-\section{Evaluation} \todo{Beide: Neu, echte Messungen einbauen}
+\section{Evaluation}
 Um unser Verfahren zur Richtungsbestimmung zu testen und die Genauigkeit zu bestimmen haben wir es in Simulation und Echtwelt evaluiert. Dabei haben wir die Abweichung der Richtungsbestimmung für verschiedene Richtungen und Frequenzen bestimmt.
-\subsection{Simulation}
+\subsection{Audiosimulation}
 Zunächst haben wir unser Verfahren in der Simulation getestet, da diese automatisierte Tests ermöglicht und somit leicht sehr viele verschiedene Richtungen/Frequenzen getestet werden können. Dabei haben wir die Schallquellen für verschiedene Radien auf einer Kugeloberfläche positioniert. Der Tetraeder wurde mit $0.28m$ Kantenlänge simuliert, dies entspricht dem Tetraeder, den wir auch in der Echtwelt gebaut haben. Die Schallquellen wurden mit einer $500Hz$ Sinusschwingung simuliert.
 \begin{figure}[H]
   \centering
-  \input{img/tested_positions}
+  \input{img/tested_positions_zoom}
   \caption{Visualisierung der getesteten Positionen}
   \label{fig:pos}
 \end{figure}
@@ -15,21 +15,50 @@ Für jeden getesteten Radius haben wir Punkte auf der Kugeloberfläche in 2° Au
   \caption{Genauigkeit für verschiedene Abstände}
   \label{fig:pos_sweep}
 \end{figure}
-Bei einem Radius von $0.25m$ gibt es einen Ausreißer mit $3.97743^\circ \pm 0.387624^\circ$, da sich die Positionen innerhalb des Tetraeders befinden. Bis $1.75m$ bleibt die Abweichung deutlich unter $2^\circ$, ist also deutlich besser als beim Menschen. Dieser kann auf sehr kurze Distanzen zwischen $10cm$ und $40cm$ gerade einmal mit $3^\circ$ Genauigkeit die Richtung bestimmen.
-Um die Abhängigkeit der Genauigkeit der Richtungsbestimmung von der Frequenz zu untersuchen haben wir die Schallquellen wieder auf einer Kugeloberfläche mit $2^\circ$ Auflösung plaziert und haben anstelle des Radius die Frequenz variiert. Für den Radius haben wir $1.4m$ gewählt.
+Bei einem Radius von $0.25m$ gibt es einen Ausreißer mit $3.97743^\circ \pm 0.387624^\circ$, da sich die Positionen innerhalb des Tetraeders befinden. Bis $1.75m$ bleibt die Abweichung deutlich unter $2^\circ$, ist also deutlich besser als beim Menschen. Dieser kann auf sehr kurze Distanzen zwischen $10cm$ und $40cm$ gerade einmal mit $3^\circ$ Genauigkeit die Richtung bestimmen. \cite{middlebrooks1991sound}
+Um die Abhängigkeit der Genauigkeit der Richtungsbestimmung von der Frequenz zu untersuchen haben wir die Schallquellen wieder auf einer Kugeloberfläche mit $2^\circ$ Auflösung platziert und haben anstelle des Radius die Frequenz variiert. Für den Radius haben wir $1.4m$ gewählt.
 \begin{figure}[H]
   \centering
   \input{img/freq_sweep}
   \caption{Genauigkeit für verschiedene Frequenzen}
   \label{fig:freq_seep}
 \end{figure}
-Man sieht, dass die Genauigkeit der Richtungsbestimmung (fast) unabhängig von der Frequenz der Schallquelle ist. Für Frequenzen über $675Hz$ ist die Bedingungen, dass die Abstände der Mikrofone kleiner als die halbe Wellenlänge sein muss nichtmehr erfüllt ist.
-\subsection{Praxis}
-In unseren Simulationen hat sich gezeigt, dass unser Verfahren theoretisch relativ genau arbeitet. Um die Genauigkeit in der Echtwelt zu untersuchen haben für acht verschiedene Positionen der Schallquelle die Abweichung der Richtung bestimmt. Diese Messung haben wir in einem mit speziellem Schaumstoff~\cite{basotect} ausgekleideten Raum durchgeführt, um Störungen wie Reflektionen zu minimieren. Der Lautsprecher war jeweils $0.75m$ von dem Zentrum der Mikrofone entfernt.
+Man sieht, dass die Genauigkeit der Richtungsbestimmung (fast) unabhängig von der Frequenz der Schallquelle ist. Für Frequenzen über $675Hz$ ist die Bedingungen, dass die Abstände der Mikrofone kleiner als die halbe Wellenlänge sein muss, nicht mehr erfüllt.
+\subsection{Echtwelt}
+In unseren Simulationen hat sich gezeigt, dass unser Verfahren theoretisch sehr genau arbeitet. Um die Genauigkeit in der Echtwelt zu untersuchen haben für acht verschiedene Positionen der Schallquelle die Abweichung der Richtung bestimmt. Diese Messung haben wir in einem mit speziellem Schaumstoff~\cite{BASOTECT} ausgekleideten Raum durchgeführt, um Störungen wie Reflexionen zu minimieren. Der Lautsprecher war jeweils $0.75m$ von dem Zentrum der Mikrofone entfernt.
+\begin{minipage}{0.49\linewidth}
 \begin{figure}[H]
   \centering
-  \input{img/real}
+  \resizebox{!}{0.7\textwidth}{\input{img/real}}
   \caption{Genauigkeit in der Echtwelt}
   \label{fig:real}
 \end{figure}
+\end{minipage}\todo{Diese Bild ist nur ein Platzhalter -> muss noch aufgenommen werden!!!!}%%
+\begin{minipage}{0.49\linewidth}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{img/pos_1}
+  \caption{Versuchsaufbau zur Messung der Genauigkeit der Richtungsbestimmung in der Schallkammer}
+  \label{fig:real_reral}
+\end{figure}
+\end{minipage}%%
 Für die acht verschiedenen Richtungen hatte die Richtungsbestimmung eine Genauigkeit von $3.9^\circ \pm 0.13^\circ$. Allerdings hatte der Lautsprecher bei dem von uns gewählten Abstand eine Größe von $3.2^\circ$, genauer also diese kann die Richtungsbestimmung also nicht sein. Die Richtungsbestimmung mit unserem Verfahren ist also auch in der Echtwelt genauer als der Mensch.
+Um die Verwendbarkeit unseres Verfahren auch außerhalb einer Schallkammer zu testen haben wir die Richtungsbestimmung zweier sich unterhaltender Personen untersucht.
+\begin{minipage}{0.49\linewidth}
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img/real_real_data}
+    \caption{Bestimmte Richtungen}
+    \label{fig:real_real_data}
+  \end{figure}
+\end{minipage}
+\begin{minipage}{0.49\linewidth}
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img/real_real}
+    \caption{Tatsächliche Position}
+    \label{fig:real_real}
+  \end{figure}
+\end{minipage}
+
+Man kann erkennen, das die mit unserem Verfahren bestimmte Richtung sehr gut mit der tatsächlichen Richtung übereinstimmt und es auch nur eine sehr geringe Streuung der Richtung gibt. Dies zeigt, das es auch für Echtwelt Situationen bei denen Störungen wie Reflexionen auftreten gut geeignet ist.
