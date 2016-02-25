@@ -13,6 +13,26 @@
 \usepackage{gensymb}
 \usepackage{listings,xcolor,gnuplottex}
 
+% Space savings:
+\usepackage[top=2.5cm, left=2.5cm, right=2.5cm, bottom=2cm]{geometry}
+\setlength\parindent{0pt}
+%\usepackage[subtle]{savetrees}
+
+% Mathematica listening
+\lstset{language=Mathematica} % mathmatica snippets
+\lstset{basicstyle={\sffamily\footnotesize},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  numbersep=5pt,
+  breaklines=true,
+  captionpos={t},
+  frame={lines},
+  rulecolor=\color{black},
+  framerule=0.5pt,
+  columns=flexible,
+  tabsize=2
+
+
 \addbibresource{bib.bib}
 
 \title{Akustische Richtungsbestimmung}
