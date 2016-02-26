@@ -56,7 +56,6 @@ f = \frac{i\cdot r}{n}
 $$
 $r$ ist dabei die Abtastrate des Signals. Die Amplitude $A$ des Sinus lässt sich mit dem Betrag der komplexen Zahl berechnen und die Phase $\phi$ mit dem Arcus-Tangens, dies entspricht der Koordinatentransformation von einem kartesischem in das polare Koordinatensystem:\\
 \begin{minipage}{0.49\textwidth}
-	\vspace{-40pt}
   $$
   A = \sqrt[]{{\Re(z)}^2 + {\Im(z)}^2}
   $$
@@ -75,6 +74,7 @@ $r$ ist dabei die Abtastrate des Signals. Die Amplitude $A$ des Sinus lässt sic
     \label{fig:polarconvert}
   \end{figure}
 \end{minipage}
+\vspace{20pt}
 \\
 Die Verwendung von $\operatorname{atan2}(y,x)$ anstelle von $\arctan\frac{y}{x}$ sorgt dafür, dass der richtige Winkel berechnet wird. $\arctan\frac{y}{x}$ liefert nur Winkel von -90\degree bis 90\degree, deswegen muss anhand des Vorzeichens von $x$ und $y$ bestimmt werden, in welchem Quadranten der Punkt liegt und der von $\arctan\frac{y}{x}$ gelieferte Winkel dementsprechend verschoben werden.
 
