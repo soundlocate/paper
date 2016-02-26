@@ -14,7 +14,7 @@
 \usepackage{listings,xcolor,gnuplottex}
 
 % Space savings:
-\usepackage[top=2.5cm, left=2.5cm, right=2.5cm, bottom=2cm]{geometry}
+\usepackage[top=7cm, left=2.5cm, right=2.5cm, bottom=3cm]{geometry}
 \setlength\parindent{0pt}
 %\usepackage[subtle]{savetrees}
 
@@ -40,11 +40,20 @@
 \date{\today}
 
 \begin{document}
-  \maketitle
-  \todo{write abstract, kommt nicht hier rein}
-  \todo{schöneres Deckblatt; SFN Logo; Dankesagung}
+  \begin{centering}
+  	Jugend forscht-Arbeit
+  	{\let\newpage\relax\maketitle}
+  	\begin{figure}
+  		\centering
+  		{\large Erstellt im Schülerforschungszentrum Nordhessen}\\
+  		\vspace{20pt}
+  		\includegraphics[width=0.2\textwidth]{img/sfn}
+  	\end{figure}
+  	\todo{write abstract, kommt nicht hier rein}
+  	\todo{schöneres Deckblatt; SFN Logo; Dankesagung}
+  \end{centering}
   \thispagestyle{empty}
-  
+  \newgeometry{top=2.5cm, left=2.5cm, right=2.5cm, bottom=2cm}
   \newpage
   \tableofcontents
   \thispagestyle{empty}
