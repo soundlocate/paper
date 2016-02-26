@@ -3,9 +3,10 @@ Bei der Entwicklung unseres neuen Verfahren zur Richtungsbestimmung haben wir un
 Um unser Konzept umzusetzen und zu evaluieren, haben wir uns entschlossen, einerseits eine Computersimulation zu schreiben und andererseits mithilfe einer realen Messapparatur zu überprüfen, ob unser Verfahren auch in der Echtwelt verwendbar ist. Der reale Aufbau soll zuerst in einer Schallkammer, also einem Raum mit wenigen akustischen Störquellen von außen und mit wenigen akustischen Reflexionen an den Wänden, und erst danach unter Einfluss von Störungen getestet werden. Dieses Vorgehen hat den Vorteil, dass man zuerst die Theorie entwickeln kann, und danach die Theorie und ihre Implementation in den verschiedenen Schritten zum Endprodukt immer weiter an Realwelteffekte, wie z.B. Rauschen, anpassen kann. Auch hierbei hilft der modulare Aufbau, da so möglichst viele Programmteile sowohl in der Simulation, als auch in realen Aufbauten verwendet werden können.
 \begin{table}[h]
 	\centering
-	\begin{tabular}{l|l}
+    \begin{tabular}{lr}
 		Mensch            & Maschine                                   \\ \hline
-		Ohren             & Mikrofonarray                              \\
+        Ohren             & Mikrofonarray                              \\
+        Gehirn            & Computeralgorithmus                        \\
 		Haarzellen im Ohr & Fourier Transformation                     \\
 		Selektives Hören  & Weiterverarbeitung durch Programme Dritter
 	\end{tabular}
