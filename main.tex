@@ -1,8 +1,8 @@
 \documentclass[10pt,a4paper]{article}
 
 \usepackage{url}
-\usepackage[colorlinks]{hyperref}
-\usepackage{fancyhdr}
+\usepackage[colorlinks=false]{hyperref}
+%\usepackage{fancyhdr}
 \usepackage{fontspec}
 \usepackage{csquotes}
 \usepackage[ngerman]{babel}
@@ -16,7 +16,7 @@
 \usepackage{gensymb}
 \usepackage{listings,xcolor,gnuplottex}
 \usepackage[font={it}]{caption}
-\pagestyle{fancy}
+\pagestyle{headings}
 
 % Space savings:
 \usepackage[top=5cm, left=2.5cm, right=2.5cm, bottom=3cm]{geometry}
@@ -82,5 +82,6 @@
   \pagebreak % Quellen und co
   \pagenumbering{roman}
   \setcounter{page}{1}
+  \addcontentsline{toc}{section}{Literaturverzeichnis}
   \printbibliography
 \end{document}
