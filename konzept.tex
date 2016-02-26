@@ -4,7 +4,7 @@ Um unser Konzept umzusetzen und zu evaluieren, haben wir uns entschlossen, einer
 \begin{table}[h]
 	\centering
     \begin{tabular}{ll}
-		Mensch            & Maschine                                   \\ \hline
+		Mensch            & Unser Verfahren                                   \\ \hline
         Ohren             & Mikrofonarray                              \\
         Haarzellen im Ohr & Fourier Transformation                     \\
         Gehirn            & Computeralgorithmus                        \\
@@ -26,4 +26,4 @@ In diesem Modul werden außerdem Frequenzen, welche nicht oder nur sehr leise in
 Das nächste Modul empfängt die Daten des vorherigen Moduls und errechnet zunächst für jede Frequenz aus den transformierten Daten den Gangunterschied zwischen den Signalen der Mikrofone. Aus diesen werden dann die möglichen Ursprungsrichtungen der einzelnen Sinusschwingung ermittelt. Da dieser Vorgang für jede Frequenz einzeln vorgenommen wird, können auch mehrere Schallquellen mit unterschiedlichen Frequenzen gleichzeitig untersucht werden. Im menschlichen Gehör wird diese Richtungsbestimmung im Gehirn vorgenommen.
 
 \subsection{Modul 4: Ausgabe}
-Das letzte Modul in der Signalkette ist die Ausgabe. Sie bekommt die fertig gruppierten Messergebnisse über eine Websocket-Verbindung und bereitet sie für den Nutzer auf. Dieses Modul kann auf die jeweilige Anwendung angepasst werden und es können mehrere Output-Module mit dem gleichen Richtungsmodul verbunden werden. Hier kann dann die Endanwendung, die das Richtungshören verwenden möchte ``angeschlossen'' werden. Der Mensch kann sich zum Beispiel mithilfe der bestimmten Richtungen auf einzelne Schallquellen konzentrieren und andere Geräusche ausblenden.
+Das letzte Modul in der Signalkette ist die Ausgabe. Sie bekommt die fertig gruppierten Messergebnisse über eine Websocket-Verbindung und bereitet sie für den Nutzer auf. Dieses Modul kann auf die jeweilige Anwendung angepasst werden und es können mehrere Output-Module mit dem gleichen Richtungsmodul verbunden werden. Hier kann dann die Endanwendung, die das Richtungshören verwenden möchte, ``angeschlossen'' werden. Der Mensch kann sich zum Beispiel mithilfe der bestimmten Richtungen auf einzelne Schallquellen konzentrieren und andere Geräusche ausblenden.
