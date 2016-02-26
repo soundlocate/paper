@@ -5,7 +5,7 @@ Der Kern unserer Idee ist die Richtungsbestimmung, die aus den Phasendifferenzen
 Um die Richtungsbestimmung unabhängig von Störfaktoren wie dem Rauschen und der Reflexion des Schalls an Wänden oder anderen Gegenständen zu überprüfen, haben wir zunächst eine Simulation entwickelt. Außerdem lässt sich mit dieser gezielt der Einfluss verschiedener Störfaktoren untersuchen. Die Simulation kann beliebig viele Mikrofone an beliebigen Positionen simulieren. Leider konnten wir keine bestehenden Lösungen für die Simulation von dreidimensionalem Ton, wie \textit{OpenAL} \cite{OpenAL}, welches eine Programmbibliothek für die Simulation von Schall ist, verwenden, da bei diesen die Anzahl der Mikrofone limitiert ist und die Phase des Audiosignals in der Simulation vernachlässigt wird. Da die Funktion unserer Richtungsbestimmung unabhängig von den Amplituden der Schallquellen bei den einzelnen Mikrofonen ist, haben wir unsere Simulation rein auf die Phase und die Laufzeit beschränkt. Um eine interaktive Benutzung und eine leichte Überprüfung der Richtungsbestimmung zu gewährleisten, besitzt die Simulation eine graphische Benutzeroberfläche, mit der man interaktiv Schallquellen hinzufügen und entfernen kann. Außerdem kann die Simulation auch die bestimmten Richtungen darstellen und ermöglicht damit einen einfachen Vergleich der bestimmten und tatsächlichen Richtungen. Das Simulationsmodul wurde in der Programmiersprache \textit{C++} implementiert, da diese eine gute \textit{OpenGL} Integration bietet.
 
 \begin{figure}[H]
-  \includegraphics[width=\linewidth]{img/bildsimulation}
+  \includegraphics[width=\linewidth *.7]{img/bildsimulation}
   \caption{Screenshot der Simulation, die roten Punkte stellen die Mikrofone dar, die schwarzen die Schallquellen und die grünen die georteten Positionen}
 \end{figure}
 
@@ -31,12 +31,12 @@ Die so ermittelten Daten können nun mittels des freien Plottingprogramms \texti
   \caption{Auf den beiden Grafiken ist die gemessene Amplitude des Mikrofons über den Winkel aufgetragen. Bei der linken Grafik kann man feststellen, dass das vermessene Mikrofon eine sehr ungleichmäßige Charakteristik aufweist, diese Mikrofone haben wir zu Anfang verwendet. Auf der rechten Seite ist die Charakteristik der Mikrofone zu sehen, die wir in unserem aktuellen Testaufbau verwenden. Diese ist sehr gleichmäßig, weshalb wir die zuerst verwendeten Mikrofone durch diese Mikrofone ausgetauscht haben.}\label{fig:caracter}
 \end{figure}
 Für die reale Messapparatur haben wir vier Mikrofone in einem Tetraeder angeordnet. Dadurch, dass ein Tetraeder symmetrisch ist, sind die Fehler in alle Richtungen ungefähr gleich groß und die Richtungsbestimmung ist in allen Richtungen gleich gut. Um die Charakteristik der Mikrofone möglichst wenig zu verändern, haben wir die Mikrofone nur an ihrem Kabel mit dem Tetraeder verbunden. Dadurch ist der Schallschatten durch den Tetraeder relativ gering. Das Mittelstück des Tetraeders haben wir mit Hilfe eines 3D Druckers hergestellt.
-\begin{figure}[H]
+\begin{wrapfigure}[H]
   \begin{center}
     \includegraphics[width=0.35\linewidth]{img/tet}
   \end{center}
   \caption{Aufbau unserer Messapparatur}
-\end{figure}
+\end{wrapfigure}
 \subsubsection{Audiointerface}
 Auch an das Audiointerface, also die Verbindung von Mikrofonen zum Computer, gibt es bestimmte Voraussetzungen. So benötigt unser Verfahren mindestens 4 Mikrofone, jedoch lässt es sich einfach auf mehr Kanäle erweitern, was der Genauigkeit zugute kommt. Daher wird ein Audiointerface mit möglichst vielen Kanälen gesucht. Eine weitere wichtige Anforderung an das Audiointerface ist eine hohe Auflösung, da hierdurch die Signalqualität verbessert wird und digitale Verstärkung bei ausreichender Audioqualität möglich ist. Um die Elekretmikrofonkapseln an das Audiointerface anzuschließen, benötigt man zusätzlich eine Schaltung, welche das unsymmetrische Signal der Elektretmikrofonkapsel in ein symmetrisches Signal für das Audiointerface umwandelt. Außerdem muss diese die Phantomspeisung, die das Audiointerface bereitstellt und eine Spannung von 48V hat, in eine Tonaderspeisung für das Mikrofon konvertieren. Hierfür kommt die Schaltung von \cite{Powering_microphones} zum Einsatz.
 
@@ -51,7 +51,6 @@ $$
 f = \frac{i\cdot r}{n}
 $$
 $r$ ist dabei die Abtastrate des Signals. Die Amplitude $A$ des Sinus lässt sich mit dem Betrag der komplexen Zahl berechnen und die Phase $\phi$ mit dem Arcus-Tangens, dies entspricht der Koordinatentransformation von einem kartesischem in das polare Koordinatensystem:
-
 \begin{minipage}{0.49\textwidth}
   $$
   A = \sqrt[]{{\Re(z)}^2 + {\Im(z)}^2}
@@ -64,12 +63,13 @@ $r$ ist dabei die Abtastrate des Signals. Die Amplitude $A$ des Sinus lässt sic
   $$
 \end{minipage}
 \begin{minipage}{0.49\textwidth}
-  \begin{figure}[H]
+  \begin{figure}
     \centering
     \scalebox{.6}{\input{img/polarconvert.tex}}
     \caption{Transformation von kartesischen zu polaren Koordinatensystem}
     \label{fig:polarconvert}
   \end{figure}
+  \todo{fixme}
 \end{minipage}
 Die Verwendung von $\operatorname{atan2}(y,x)$ anstelle von $\arctan\frac{y}{x}$ sorgt dafür, dass der richtige Winkel berechnet wird. $\arctan\frac{y}{x}$ liefert nur Winkel von -90\degree bis 90\degree, deswegen muss anhand des Vorzeichens von $x$ und $y$ bestimmt werden, in welchem Quadranten der Punkt liegt und der von $\arctan\frac{y}{x}$ gelieferte Winkel dementsprechend verschoben werden.
 
@@ -81,7 +81,7 @@ Das Richtungsmodul ist in C++ geschrieben und verwendet \textit{LAPACK}\cite{And
 \subsection{Ausgabemodul (Modul 4)}
 Wir haben ein Beispiel-Ausgabemodul in Javascript implementiert. Mit diesem ist es möglich, die Positionsdaten zu visualisieren, was das unmittelbare Evaluieren stark vereinfacht. Die Programmiersprache Javascript haben wir gewählt, damit dieses Ausgabemodul auf jedem Endgerät mit modernem Webbrowser, wie z.B. Smartphones oder Laptops, ausgeführt werden kann.\\
 Die Simulation enthält eine weitere Implementation eines Ausgabemoduls. Auch diese visualisiert die bestimmten Richtungen, erlaubt es aber, diese auf der gleichen Benutzeroberfläche wie die Sollrichtung anzuzeigen. Dies gibt ein sehr direktes Feedback beim Entwickeln des Algorithmus zur Richtungsbestimmung. Dieses letzte Modul könnte allerdings, dank unseres modularen Konzeptes, bei Bedarf auch anders, z.B. als Plugin für eine \textit{Digital Audio Workstation} (\textit{DAW}) implementiert werden.
-\begin{wrapfigure}[H]
+\begin{wrapfigure}[H]{r}
   \centering
   \includegraphics[width=0.5\textwidth]{img/output}
   \caption{Screenshot unseres Beispiel-Ausgabemoduls}
