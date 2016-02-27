@@ -1,7 +1,7 @@
 \section{Evaluation}
 Um unser Verfahren zur Richtungsbestimmung zu testen und die Genauigkeit zu bestimmen, haben wir es in Simulation und Echtwelt evaluiert. Dabei haben wir die Abweichung der Richtungsbestimmung für verschiedene Richtungen und Frequenzen bestimmt.
 \subsection{Audiosimulation}
-Zunächst haben wir unser Verfahren in der Simulation getestet, da diese automatisierte Tests ermöglicht und somit leicht sehr viele verschiedene Richtungen und Frequenzen getestet werden können. Dabei haben wir die Schallquellen für verschiedene Radien auf einer Kugeloberfläche positioniert. Der Tetraeder wurde mit $0.28m$ Kantenlänge simuliert, dies entspricht dem Tetraeder, den wir auch in echt gebaut haben. Die Schallquellen wurden mit einer $500\mathrm{Hz}$-Sinusschwingung simuliert.
+Zunächst haben wir unser Verfahren in der Simulation getestet, da diese automatisierte Tests ermöglicht und somit leicht sehr viele verschiedene Richtungen und Frequenzen getestet werden können. Dabei haben wir die Schallquellen für verschiedene Radien auf einer Kugeloberfläche positioniert. Der Tetraeder wurde mit $0.28\mathrm{m}$ Kantenlänge simuliert, dies entspricht dem Tetraeder, den wir auch in echt gebaut haben. Die Schallquellen wurden mit einer $500\mathrm{Hz}$-Sinusschwingung simuliert.
 \begin{figure}[H]
   \centering
   \input{img/tested_positions_zoom}
@@ -15,8 +15,8 @@ Für jeden getesteten Radius haben wir Punkte auf der Kugeloberfläche in 2° Au
   \caption{Genauigkeit für verschiedene Abstände}
   \label{fig:pos_sweep}
 \end{figure}
-Bei einem Radius von $0.25m$ gibt es einen Ausreißer mit $4.0^\circ \pm 0.4^\circ$, da sich die Positionen innerhalb des Tetraeders befinden. Bis $1.75m$ bleibt die Abweichung deutlich unter $2^\circ$, ist also deutlich besser als beim Menschen. Dieser kann auf sehr kurze Distanzen zwischen $10cm$ und $40cm$ gerade einmal mit $3^\circ$ Genauigkeit die Richtung bestimmen. \cite{middlebrooks1991sound}
-Um die Abhängigkeit der Genauigkeit der Richtungsbestimmung von der Frequenz zu untersuchen, haben wir die Schallquellen wieder auf einer Kugeloberfläche mit $2^\circ$ Auflösung platziert und haben anstelle des Radius die Frequenz variiert. Für den Radius haben wir $1.4m$ gewählt.
+Bei einem Radius von $0.25\mathrm{m}$ gibt es einen Ausreißer mit $4.0^\circ \pm 0.4^\circ$, da sich die Positionen innerhalb des Tetraeders befinden. Bis $1.75\mathrm{m}$ bleibt die Abweichung deutlich unter $2^\circ$, ist also deutlich besser als beim Menschen. Dieser kann auf sehr kurze Distanzen zwischen $10\mathrm{cm}$ und $40\mathrm{cm}$ gerade einmal mit $3^\circ$ Genauigkeit die Richtung bestimmen. \cite{middlebrooks1991sound}
+Um die Abhängigkeit der Genauigkeit der Richtungsbestimmung von der Frequenz zu untersuchen, haben wir die Schallquellen wieder auf einer Kugeloberfläche mit $2^\circ$ Auflösung platziert und haben anstelle des Radius die Frequenz variiert. Für den Radius haben wir $1.4\mathrm{m}$ gewählt.
 \begin{figure}[H]
   \centering
   \input{img/freq_sweep}
@@ -25,7 +25,7 @@ Um die Abhängigkeit der Genauigkeit der Richtungsbestimmung von der Frequenz zu
 \end{figure}
 Man sieht, dass die Genauigkeit der Richtungsbestimmung (fast) unabhängig von der Frequenz der Schallquelle ist. Für Frequenzen über $675\mathrm{Hz}$ ist die Bedingung, dass die Abstände der Mikrofone kleiner als die halbe Wellenlänge sein muss, nicht mehr erfüllt.
 \subsection{Echtwelt}
-In unseren Simulationen hat sich gezeigt, dass unser Verfahren sehr genau arbeitet. Um zu untersuchen, wie genau es unter dem Einfluss von Störungen und mit den Fehlern durch die Aufnahme mit Mikrofonen arbeitet, haben wir für acht verschiedene Positionen der Schallquelle die Abweichung der Richtung bestimmt. Diese Messung haben wir in einem mit speziellem Schaumstoff~\cite{BASOTECT} ausgekleideten Raum durchgeführt, um Störungen wie Reflexionen, in der Testphase, zu minimieren. Der Lautsprecher war jeweils $0.75m$ von dem Zentrum der Mikrofone entfernt.
+In unseren Simulationen hat sich gezeigt, dass unser Verfahren sehr genau arbeitet. Um zu untersuchen, wie genau es unter dem Einfluss von Störungen und mit den Fehlern durch die Aufnahme mit Mikrofonen arbeitet, haben wir für acht verschiedene Positionen der Schallquelle die Abweichung der Richtung bestimmt. Diese Messung haben wir in einem mit speziellem Schaumstoff~\cite{BASOTECT} ausgekleideten Raum durchgeführt, um Störungen wie Reflexionen, in der Testphase, zu minimieren. Der Lautsprecher war jeweils $0.75\mathrm{m}$ von dem Zentrum der Mikrofone entfernt.
 \begin{figure}[H]
   \centering
   \resizebox{!}{0.55\textwidth}{\input{img/real}}
