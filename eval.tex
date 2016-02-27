@@ -23,7 +23,7 @@ Um die Abhängigkeit der Genauigkeit der Richtungsbestimmung von der Frequenz zu
   \caption{Genauigkeit für verschiedene Frequenzen}
   \label{fig:freq_seep}
 \end{figure}
-Man sieht, dass die Genauigkeit der Richtungsbestimmung (fast) unabhängig von der Frequenz der Schallquelle ist. Für Frequenzen über $675Hz$ ist die Bedingung, dass die Abstände der Mikrofone kleiner als die halbe Wellenlänge sein muss, nicht mehr erfüllt.
+Man sieht, dass die Genauigkeit der Richtungsbestimmung (fast) unabhängig von der Frequenz der Schallquelle ist. Für Frequenzen über $675\mathrm{Hz}$ ist die Bedingung, dass die Abstände der Mikrofone kleiner als die halbe Wellenlänge sein muss, nicht mehr erfüllt.
 \subsection{Echtwelt}
 In unseren Simulationen hat sich gezeigt, dass unser Verfahren sehr genau arbeitet. Um zu untersuchen, wie genau es unter dem Einfluss von Störungen und mit den Fehlern durch die Aufnahme mit Mikrofonen arbeitet, haben wir für acht verschiedene Positionen der Schallquelle die Abweichung der Richtung bestimmt. Diese Messung haben wir in einem mit speziellem Schaumstoff~\cite{BASOTECT} ausgekleideten Raum durchgeführt, um Störungen wie Reflexionen, in der Testphase, zu minimieren. Der Lautsprecher war jeweils $0.75m$ von dem Zentrum der Mikrofone entfernt.
 \begin{figure}[H]
@@ -43,21 +43,21 @@ Für die acht verschiedenen Richtungen hatte die Richtungsbestimmung eine Genaui
 \subsection{Alltagstest}
 Um die Verwendbarkeit unseres Verfahren auch außerhalb einer Schallkammer zu testen, haben wir die Richtungsbestimmung zweier sich unterhaltender Personen untersucht.\\
 \begin{minipage}{0.49\linewidth}
-  \begin{figure}[H]
-  	\hfill
-    \centering
-    \includegraphics[width=\textwidth]{img/real_data.png}
-    \caption{Bestimmte Richtungen}
-    \label{fig:real_real_data}
-  \end{figure}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{img/real_real}
+		\caption{Tatsächliche Position}
+		\label{fig:real_real}
+	\end{figure}
 \end{minipage}\hfill
 \begin{minipage}{0.49\linewidth}
-  \begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{img/real_real}
-    \caption{Tatsächliche Position}
-    \label{fig:real_real}
-  \end{figure}
+   \begin{figure}[H]
+   	\hfill
+   	\centering
+   	\includegraphics[width=\textwidth]{img/real_data.png}
+   	\caption{Bestimmte Richtungen}
+   	\label{fig:real_real_data}
+   \end{figure}
 \end{minipage}
 \vspace{10pt}
 \\

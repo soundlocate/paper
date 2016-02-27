@@ -1,19 +1,19 @@
 \section{Konzept}
-Bei der Entwicklung unseres neuen Verfahren zur Richtungsbestimmung haben wir uns stark am menschlichen Gehör und seiner Fähigkeit des Richtungshörens orientiert. Da beim menschlichen Gehör verschiedene Verarbeitungssstufen durchlaufen werden, ist auch unsere Software modular aufgebaut (siehe Tabelle \ref{analog}). Nachfolgend werden die einzelnen Module in der Reihenfolge, in der das Signal sie durchläuft, beschrieben. 
-Um unser Konzept umzusetzen und zu evaluieren, haben wir uns entschlossen, einerseits eine Computersimulation zu schreiben und andererseits mithilfe einer realen Messapparatur zu überprüfen, ob unser Verfahren auch in der Echtwelt verwendbar ist. Der reale Aufbau soll zuerst in einer Schallkammer, also einem Raum mit wenigen akustischen Störquellen von außen und mit wenigen akustischen Reflexionen an den Wänden, und erst danach unter Einfluss von Störungen getestet werden. Dieses Vorgehen hat den Vorteil, dass man zuerst die Theorie entwickeln kann, und danach die Theorie und ihre Implementation in den verschiedenen Schritten zum Endprodukt immer weiter an Realwelteffekte, wie z.B. Rauschen, anpassen kann. Auch hierbei hilft der modulare Aufbau, da so möglichst viele Programmteile sowohl in der Simulation, als auch in realen Aufbauten verwendet werden können.
+Bei der Entwicklung unseres neuen Verfahrens zur Richtungsbestimmung haben wir uns stark am menschlichen Gehör und seiner Fähigkeit des Richtungshörens orientiert. Da beim menschlichen Gehör verschiedene Verarbeitungssstufen durchlaufen werden, ist auch unsere Software modular aufgebaut (siehe Tabelle \ref{analog}). Nachfolgend werden die einzelnen Module in der Reihenfolge, in der das Signal sie durchläuft, beschrieben. 
+Um unser Konzept umzusetzen und zu evaluieren, haben wir uns entschlossen, einerseits eine Computersimulation zu schreiben und andererseits mithilfe einer realen Messapparatur zu überprüfen, ob unser Verfahren auch in der Echtwelt verwendbar ist. Der reale Aufbau soll zuerst in einer Schallkammer, also einem Raum mit wenigen akustischen Störquellen von außen und mit wenigen akustischen Reflexionen an den Wänden, und erst danach unter Einfluss von Störungen getestet werden. Dieses Vorgehen hat den Vorteil, dass man zuerst die Theorie entwickeln kann, und danach die Theorie und ihre Implementation in den verschiedenen Schritten zum Endprodukt immer weiter an Realwelteffekte, wie zum Beispiel Rauschen, anpassen kann. Auch hierbei hilft der modulare Aufbau, da so möglichst viele Programmteile sowohl in der Simulation, als auch in realen Aufbauten verwendet werden können.
+Unser Konzept sieht vier Module vor, welche über TCP/IP und Websockets verbunden sind. Dies sind Standards, mit denen über ein Computernetzwerk Daten ausgetauscht werden können \cite{tcp} \cite{websockets}. Diese beiden Protokolle sind sehr zuverlässig und lange erprobt. Außerdem garantieren sie, dass alle Daten in der Reihenfolge, in der sie losgeschickt werden, ankommen. Die Verwendung von Netzwerkprotokollen hat den Vorteil, dass die Module nicht unbedingt auf demselben Computer ausgeführt werden müssen und so der Rechenaufwand bei Bedarf auf mehrere Computer verteilt werden kann.
 \begin{table}[h]
 	\centering
-    \begin{tabular}{ll}
+	\begin{tabular}{ll}
 		Mensch            & Unser Verfahren                                   \\ \hline
-        Ohren             & Mikrofonarray                              \\
-        Haarzellen im Ohr & Fourier Transformation                     \\
-        Richtungsbestimmung im Gehirn            & Computeralgorithmus zur Richtungsbestimmung                       \\
+		Ohren             & Mikrofonarray                              \\
+		Haarzellen im Ohr & Fourier Transformation                     \\
+		Richtungsbestimmung im Gehirn            & Computeralgorithmus zur Richtungsbestimmung                       \\
 		Selektives Hören  & Weiterverarbeitung durch Programme Dritter
 	\end{tabular}
 	\caption{Die Analogie zwischen dem menschlichen Gehör und unserem Verfahren}
 	\label{analog}
 \end{table}
-Unser Konzept sieht vier Module vor, welche über TCP/IP und Websockets verbunden sind. Dies sind Standards, mit denen über ein Computernetzwerk Daten ausgetauscht werden können \cite{tcp} \cite{websockets}. Diese beiden Protokolle sind sehr zuverlässig und lange erprobt. Außerdem garantieren sie, dass alle Daten in der Reihenfolge, in der sie losgeschickt werden, ankommen. Die Verwendung von Netzwerkprotokollen hat den Vorteil, dass die Module nicht unbedingt auf demselben Computer ausgeführt werden müssen und so der Rechenaufwand bei Bedarf auf mehrere Computer verteilt werden kann.
 
 \subsection{Modul 1: Eingabe/Aufnahme}
 Das erste Modul in dieser Kette stellt die Rohdaten für die weitere Verarbeitung bereit. Diese  können entweder von einer Gruppe real existierender Mikrofone stammen oder, im Falle der Simulation, die Signale einer Gruppe simulierter Mikrofone, die simulierte Schallquellen aufnehmen, sein. Dieses Modul entspricht dem menschlichen Ohr und seiner Aufgabe, den Schall aufzunehmen. 
@@ -26,5 +26,5 @@ In diesem Modul werden außerdem Frequenzen, welche nicht oder nur sehr leise in
 Das nächste Modul empfängt die Daten des vorherigen Moduls und errechnet zunächst für jede Frequenz aus den transformierten Daten den Gangunterschied zwischen den Signalen der Mikrofone. Aus diesen werden dann die möglichen Ursprungsrichtungen der einzelnen Sinusschwingung ermittelt. Da dieser Vorgang für jede Frequenz einzeln vorgenommen wird, können auch mehrere Schallquellen mit unterschiedlichen Frequenzen gleichzeitig untersucht werden. Im menschlichen Gehör wird diese Richtungsbestimmung im Gehirn vorgenommen.
 
 \subsection{Modul 4: Ausgabe}
-Das letzte Modul in der Signalkette ist die Ausgabe. Sie bekommt die fertig gruppierten Messergebnisse über eine Netzwerk-Verbindung und bereitet sie für den Nutzer auf. Dieses Modul kann auf die jeweilige Anwendung angepasst werden und es können mehrere Output-Module mit dem gleichen Richtungsmodul verbunden werden. Hier kann dann die Endanwendung, die das Richtungshören verwenden möchte, ``angeschlossen'' werden.\\
+Das letzte Modul in der Signalkette ist die Ausgabe. Sie bekommt die fertig gruppierten Messergebnisse über eine Netzwerk-Verbindung und bereitet sie für den Nutzer auf. Dieses Modul kann auf die jeweilige Anwendung angepasst werden und es können mehrere Output-Module mit dem gleichen Richtungsmodul verbunden werden. Hier kann dann die Endanwendung, die das Richtungshören verwenden möchte, \textit{angeschlossen} werden.\\
 Der Mensch kann sich zum Beispiel mithilfe der bestimmten Richtungen auf einzelne Schallquellen konzentrieren und andere Geräusche ausblenden.

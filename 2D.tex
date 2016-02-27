@@ -1,14 +1,14 @@
 \section{Zweidimensionale Richtungsbestimmung}
 \subsection{Erweiterung der Theorie}
 Um die eindimensionale Richtungsbestimmung auf den zweidimensionalen Raum zu erweitern, muss man lediglich $s_y$ nicht mehr als konstant betrachten. Dadurch hat die Gleichung, die für das Eindimensionale eindeutig war, nun zwei Unbekannte: $s_x$ und $s_y$. Um im Zweidimensionalen eine Ortung durchzuführen, wird deswegen ein drittes Mikrofon $M_3$ benötigt. Auch der Abstand zwischen dem dritten Mikrofon und dem ersten darf maximal so groß wie die Wellenlänge sein. Mit dem drittem Mikrofon kann eine weitere Gleichung, die den Gangunterschied zwischen dem ersten und dem dritten Mikrofon $\Delta{x_{13}}$ enthält, aufgestellt werden. Man erhält das Gleichungssystem:
-$$\begin{cases}
+$$\left|\begin{array}{c}
   \abs{\vec{m}_1 - \vec{s}} - \abs{\vec{m}_2 - \vec{s}} = \Delta{x_{12}} \\
   \abs{\vec{m}_1 - \vec{s}} - \abs{\vec{m}_3 - \vec{s}} = \Delta{x_{13}}
-\end{cases}$$
-$$\begin{cases}
+\end{array}\right|$$
+$$\left|\begin{array}{c}
   \sqrt{{(m_{1x} - s_x)}^2 + {(m_{1y} - s_y)}^2} - \sqrt{{(m_{2x} - s_x)}^2 + {(m_{2y} - s_y)}^2} = \Delta{x_{12}} \\
   \sqrt{{(m_{1x} - s_x)}^2 + {(m_{1y} - s_y)}^2} - \sqrt{{(m_{3x} - s_x)}^2 + {(m_{3y} - s_y)}^2} = \Delta{x_{13}}
-\end{cases}$$
+\end{array}\right|$$
 Graphisch veranschaulicht entspricht dieses Gleichungssystem der Suche nach dem Schnittpunkt von zwei halben Hyperbeln um zwei der Mikrofone
 \begin{figure}[H]
 	\vspace{-20pt}

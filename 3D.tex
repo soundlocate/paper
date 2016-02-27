@@ -13,54 +13,56 @@ m_{iz}
 Mit den angepassten Ortsvektoren erhält man eine neue Formel für die Abstandsberechnung zwischen einem Mikrofon und der Schallquelle:
 $$\abs{\vec{m}_i - \vec{s}} = \sqrt{{(m_{ix} - s_x)}^2 + {(m_{iy} - s_y)}^2 + {(m_{i_z} - s_z)}^2}$$
 Man erhält eine weitere Unbekannte, $m_{i_z}$. Dadurch wird für die dreidimensionale Ortung ein viertes Mikrofon benötigt. Mit dem vierten Mikrofon erhält man eine dritte Gleichung, die den Gangunterschied zwischen dem ersten und dem vierten Mikrofon enthält, dadurch wird das Gleichungssystem wieder eindeutig lösbar:
-$$\begin{cases}
+$$\left|\begin{array}{c}
 \abs{\vec{m}_1 - \vec{s}} - \abs{\vec{m}_2 - \vec{s}} = \Delta{x_{12}} \\
 \abs{\vec{m}_1 - \vec{s}} - \abs{\vec{m}_3 - \vec{s}} = \Delta{x_{13}} \\
 \abs{\vec{m}_1 - \vec{s}} - \abs{\vec{m}_4 - \vec{s}} = \Delta{x_{14}}
-\end{cases}$$
-$$\begin{cases}
+\end{array}\right|$$
+$$\left|\begin{array}{c}
 \sqrt{{(m_{1x} - s_x)}^2 + {(m_{1y} - s_y)}^2} - \sqrt{{(m_{2x} - s_x)}^2 + {(m_{2y} - s_y)}^2 + {(m_{2_z} - s_z)}^2} = \Delta{x_{12}} \\
 \sqrt{{(m_{1x} - s_x)}^2 + {(m_{1y} - s_y)}^2} - \sqrt{{(m_{3x} - s_x)}^2 + {(m_{3y} - s_y)}^2 + {(m_{3_z} - s_z)}^2} = \Delta{x_{13}} \\
 \sqrt{{(m_{1x} - s_x)}^2 + {(m_{1y} - s_y)}^2} - \sqrt{{(m_{4x} - s_x)}^2 + {(m_{4_y} - s_y)}^2 + {(m_{4_z} - s_z)}^2} = \Delta{x_{14}}
-\end{cases}$$
-\subsection{Numerische Lösung des Gleichungssystems mit Singulärwertszerlegung und Gauss-Markow Algorithmus}
-Schon für zwei Dimensionen ist die analytische Lösung des Gleichungssystem sehr kompliziert. Für drei Dimensionen ist die Formel der Lösung in Textform über 300Mb groß. Dadurch können wir sie nur durch Einschränkung der Mikrofon-Positionen verwenden. Um diese Einschränkung zu umgehen, lösen wir das Gleichungssystem numerisch. Dazu verwenden wir das mehrdimensionale Newtonverfahren. Hierbei gehen wir von einer Startposition $\vec{s}_0$ aus, die iterativ verbessert wird. Als Startposition haben wir das Zentrum der Mikrofone gewählt. Für den Iterationsschritt $i$ erhält man die neue Positionen mit $\vec{s}_{i + 1} = \vec{s}_i + \vec{\Delta{s}}_i$. Das Gleichungssystem für die dreidimensionale Ortung lässt sich umschreiben zu:
-$$\begin{cases}
+\end{array}\right|$$
+\subsection{Numerische Lösung des Gleichungssystems mit Singulärwertzerlegung und Gauss-Markow Algorithmus}
+Schon für zwei Dimensionen ist die analytische Lösung des Gleichungssystem sehr kompliziert. Für drei Dimensionen ist die Formel der Lösung in Textform über 300Mb groß. Dadurch können wir sie nur durch Einschränkung der Mikrofon-Positionen verwenden. Um diese Einschränkung zu umgehen, lösen wir das Gleichungssystem numerisch. Dazu verwenden wir das mehrdimensionale Newtonverfahren. Hierbei gehen wir von einer Startposition $\vec{s}_0$ aus, die iterativ verbessert wird. Als Startposition haben wir das Zentrum der Mikrofone gewählt. Für den Iteratiosvektoren erhält man eine neue Formel für die Abstandsberechnung zwischen einem Mikrofon und der Schallquelle:
+$$\abs{\vec{m}_i - \vec{s}} = \sqrt{{(m_{ix} - s_x)}^2 + {(m_{iy} - s_y)}^2 + {(m_{i_z} - s_z)}^2}$$
+Man erhält eine weitere nsschritt $i$ erhält man die neue Positionen mit $\vec{s}_{i + 1} = \vec{s}_i + \vec{\Delta{s}}_i$. Das Gleichungssystem für die dreidimensionale Ortung lässt sich umschreiben zu:
+$$\left|\begin{array}{c}
 \sqrt{(m_{1x} - s_x)^2 + (m_{1y} - s_y)^2 + (m_{1_z} - s_z)^2} - d = 0 \\
 \sqrt{(m_{2x} - s_x)^2 + (m_{2y} - s_y)^2 + (m_{2_z} - s_z)^2} - d = \Delta{x_{12}} \\
 \sqrt{(m_{3x} - s_x)^2 + (m_{3y} - s_y)^2 + (m_{3_z} - s_z)^2} - d = \Delta{x_{13}} \\
 \sqrt{(m_{4x} - s_x)^2 + (m_{4y} - s_y)^2 + (m_{4_z} - s_z)^2} - d = \Delta{x_{14}} \\
-\end{cases}$$
+\end{array}\right|$$
 Um dieses Gleichungssystem mit dem Newtonverfahren zu lösen wird es mit der Taylorentwicklung bis zur ersten Ordung linearisiert:
-$$\begin{cases}
+$$\left|\begin{array}{c}
 -r_{1_{ca}} = \frac{s_{ix} - m_{1x}}{r_{1_{ca}}} \cdot \vec{\Delta{s}}_{ix} + \frac{s_{iy} - m_{1y}}{r_{1_{ca}}} \cdot \vec{\Delta{s}}_{iy} + \frac{s_{i_z} - m_{1_z}}{r_{1_{ca}}} \cdot \vec{\Delta{s}}_{i_z} - d \\
 \Delta{x_{12}} - r_{2_{ca}} = \frac{s_{ix} - m_{2x}}{r_{2_{ca}}} \cdot \vec{\Delta{s}}_{ix} + \frac{s_{iy} - m_{2y}}{r_{2_{ca}}} \cdot \vec{\Delta{s}}_{iy} + \frac{s_{i_z} - m_{2_z}}{r_{2_{ca}}} \cdot \vec{\Delta{s}}_{i_z} - d \\
 \Delta{x_{13}} - r_{3_{ca}} = \frac{s_{ix} - m_{3x}}{r_{3_{ca}}} \cdot \vec{\Delta{s}}_{ix} + \frac{s_{iy} - m_{3y}}{r_{3_{ca}}} \cdot \vec{\Delta{s}}_{iy} + \frac{s_{i_z} - m_{3_z}}{r_{3_{ca}}} \cdot \vec{\Delta{s}}_{i_z} - d \\
 \Delta{x_{14}} - r_{4_{ca}} = \frac{s_{ix} - m_{4x}}{r_{4_{ca}}} \cdot \vec{\Delta{s}}_{ix} + \frac{s_{iy} - m_{4y}}{r_{4_{ca}}} \cdot \vec{\Delta{s}}_{iy} + \frac{s_{i_z} - m_{4_z}}{r_{4_{ca}}} \cdot \vec{\Delta{s}}_{i_z} - d \\
-\end{cases}$$
+\end{array}\right|$$
 $$r_{i_{ca}} = \sqrt{(m_{ix} - s_{ix})^2 + (m_{iy} - s_{iy})^2 + (m_{i_z} - s_{i_z})^2}$$
 
 $$
-\begin{bmatrix}
+\begin{pmatrix}
 \vec{\Delta{s}}_{ix} \\
 \vec{\Delta{s}}_{iy} \\
 \vec{\Delta{s}}_{iz} \\
                 d \\
-\end{bmatrix}
+\end{pmatrix}
 =
-{\begin{bmatrix}
+{\begin{pmatrix}
 \frac{s_{ix} - m_{1x}}{r_{1_{ca}}} & \frac{s_{iy} - m_{1y}}{r_{1_{ca}}} & \frac{s_{i_z} - m_{1_z}}{r_{1_{ca}}} & -1 \\
 \frac{s_{ix} - m_{2x}}{r_{2_{ca}}} & \frac{s_{iy} - m_{2y}}{r_{2_{ca}}} & \frac{s_{i_z} - m_{1_z}}{r_{2_{ca}}} & -1 \\
 \frac{s_{ix} - m_{3x}}{r_{3_{ca}}} & \frac{s_{iy} - m_{3y}}{r_{3_{ca}}} & \frac{s_{i_z} - m_{1_z}}{r_{3_{ca}}} & -1 \\
 \frac{s_{ix} - m_{4x}}{r_{4_{ca}}} & \frac{s_{iy} - m_{4y}}{r_{4_{ca}}} & \frac{s_{i_z} - m_{1_z}}{r_{4_{ca}}} & -1 \\
-\end{bmatrix}}^{-1}
+\end{pmatrix}}^{-1}
 \cdot
-\begin{bmatrix}
+\begin{pmatrix}
 -r_{1_{ca}}\\
 \Delta{x_{12}} - r_{2_{ca}}\\
 \Delta{x_{13}} - r_{3_{ca}}\\
 \Delta{x_{14}} - r_{4_{ca}}
-\end{bmatrix}
+\end{pmatrix}
 $$
 Für die Berechnung der Inverse der Matrix gibt es viele verschiedene Methoden, wir benutzen die Singulärwertszerlegung. Die numerische Lösung des Gleichungssystems benötigt eine initiale Position, für die die Mitte der Mikrofone verwendet wird. Wenn allerdings bereits eine alte Position für die vorliegende Frequenz bekannt ist, wird diese alte Position als Startwert der Iteration verwendet, da dadurch, wenn sich die Position der Schallquelle nicht zu sehr geändert hat, die Iteration schneller konvergiert. Als Konvergenzkriterium verwenden wir $\abs{\vec{\Delta{s}}_i} < 0.0001m$. Da das Newtonverfahren keine garantierte Konvergenz hat, wird die Iteration nach $50$ Iterationsschitten abgebrochen.
-Ein Vorteil der numerischen Lösung ist, dass sie leicht auf beliebig viele Mikrofone erweitert werden kann. Das Gleichungssystem wird überbestimmt, wenn man mehr als vier Mikrofone verwendet, aber indem man die Methode der kleinsten Quadrate auf die Berechnung von $\vec{\Delta{s}}_i$ anwendet, erhält man den Ort, an dem die Summe der Fehlerquadrate für alle Mikrofone am geringsten ist, es also am wahrscheinlichsten ist, dass sich die Schallquelle wirklich dort befindet. Dazu verwenden wir das Gauss-Markow-Theorem. Außerdem kann man mit mehr Mikrofonen die Richtungsbestimmung auch unabhängig von der Schallgeschwindigkeit machen, denn diese kann als eine weitere Variable eingeführt werden.
+Ein Vorteil der numerischen Lösung ist, dass sie leicht auf beliebig viele Mikrofone erweitert werden kann. Das Gleichungssystem wird überbestimmt, wenn man mehr als vier Mikrofone verwendet, aber indem man die Methode der kleinsten Quadrate auf die Berechnung von $\vec{\Delta{s}}_i$ anwendet, erhält man den Ort, an dem die Summe der Fehlerquadrate für alle Mikrofone am geringsten ist, es also am wahrscheinlichsten ist, dass sich die Schallquelle wirklich dort befindet. Das ist eine Anwendung des Gauss-Markow-Theorem. Außerdem kann man mit mehr Mikrofonen die Richtungsbestimmung auch unabhängig von der Schallgeschwindigkeit machen, denn diese kann als eine weitere Variable eingeführt werden.
