@@ -10,6 +10,5 @@
 *.bcf
 *.bbl
 *.run.xml
-*.pdf
 *.fdb_latexmk
 *.fls
