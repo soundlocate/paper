@@ -59,6 +59,7 @@ $$
 \cdot
 \begin{pmatrix}
 -r_{1_{ca}}\\
+
 \Delta{x_{12}} - r_{2_{ca}}\\
 \Delta{x_{13}} - r_{3_{ca}}\\
 \Delta{x_{14}} - r_{4_{ca}}
@@ -66,3 +67,5 @@ $$
 $$
 Für die Berechnung der Inverse der Matrix gibt es viele verschiedene Methoden, wir benutzen die Singulärwertszerlegung. Die numerische Lösung des Gleichungssystems benötigt eine initiale Position, für die die Mitte der Mikrofone verwendet wird. Wenn allerdings bereits eine alte Position für die vorliegende Frequenz bekannt ist, wird diese alte Position als Startwert der Iteration verwendet, da dadurch, wenn sich die Position der Schallquelle nicht zu sehr geändert hat, die Iteration schneller konvergiert. Als Konvergenzkriterium verwenden wir $\abs{\vec{\Delta{s}}_i} < 0.0001\mathrm{m}$. Da das Newtonverfahren keine garantierte Konvergenz hat, wird die Iteration nach $50$ Iterationsschitten abgebrochen.
 Ein Vorteil der numerischen Lösung ist, dass sie leicht auf beliebig viele Mikrofone erweitert werden kann. Das Gleichungssystem wird überbestimmt, wenn man mehr als vier Mikrofone verwendet, aber indem man die Methode der kleinsten Quadrate auf die Berechnung von $\vec{\Delta{s}}_i$ anwendet, erhält man den Ort, an dem die Summe der Fehlerquadrate für alle Mikrofone am geringsten ist, es also am wahrscheinlichsten ist, dass sich die Schallquelle wirklich dort befindet. Die Least Squares Lösung entspricht für unser Problem, nach dem Gauss-Markow-Theorem einem minimalvarianten linearen erwatungstreuen Schätzer. Außerdem kann man mit mehr Mikrofonen die Richtungsbestimmung auch unabhängig von der Schallgeschwindigkeit machen, denn diese kann als eine weitere Variable eingeführt werden.
+\subsection{Zusammenfassen von ähnlichen Richtungen}
+Signale in der Echtwelt bestehen aus vielen verschiedenen Frequenzen, dadurch erhält man anstatt einer Richtung für eine Schallquelle, wie eine sprechender Mensch, nicht nur eine Richtung, sondern viele ähnliche Richtungen. Um die ermittelten Richtungen eindeutiger zu machen fassen wir deswegen diese ähnliche Richtungen zusammen. Dazu verwenden wir ein agglomeratives Clusterverfahren mit der Summe der minimalen Winkel zwischen zwei Richtungen als Unähnlichkeit. Von jeder Frequenz werden die letzten zehn Richtungen gespeichert und diese fließen mit in die Clusterbildung mit ein. Um geringe Änderungen in der Richtung auszugleichen wird außerdem ein laufendes Mittel der Richtung für jede Frequenz über drei Richtungen gebildet. Die Richtung eines Clusters wird über ein nach dem Amplituden gewichtetes Mittel aus allen zu dem Cluster gehörenden Richtungen berechnet.

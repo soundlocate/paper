@@ -94,6 +94,17 @@ Das Richtungsmodul haben wir in C++ geschrieben und verwendet \textit{LAPACK}\ci
 \end{wrapfigure}
 Wir haben ein Beispiel-Ausgabemodul in Javascript implementiert. Mit diesem ist es möglich, die Positionsdaten zu visualisieren, was das unmittelbare Überprüfen unseres Verfahrens stark vereinfacht. Die Programmiersprache Javascript haben wir gewählt, damit dieses Ausgabemodul auf jedem Endgerät mit modernem Webbrowser, wie z.B. Smartphones oder Laptops, ausgeführt werden kann.\\
 Die Simulation enthält eine weitere Implementation eines Ausgabemoduls. Auch diese visualisiert die bestimmten Richtungen, erlaubt es aber, diese auf der gleichen Benutzeroberfläche wie die Sollrichtung anzuzeigen. Dies gibt ein sehr direktes Feedback beim Entwickeln des Algorithmus zur Richtungsbestimmung. Dieses letzte Modul könnte allerdings, dank unseres modularen Konzeptes, bei Bedarf auch anders, z.B. als Plugin für eine \textit{Digital Audio Workstation} (\textit{DAW}) implementiert werden.
+
+\subsection{Zentrale Steuerung}
+Um die Konfiguration der einzelnen Module zu vereinfachen und schneller an neue Situationen anpassen zu können haben wir ein Programm entwickelt, dass alle Module mit der gewünschten Konfiguration startet und mit dem man alle Module konfigurieren kann. Außerdem überwacht das Programm die Ausführung aller Module, gibt etwahige Fehlermeldungen aus und startet die einzelnen Module nach kritischen Fehlern neu.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{img/GUI}
+  \caption{Screenshot der Steuerungsoberfläche}
+  \label{fig:gui_screenshot}
+\end{figure}
+
 \subsection{Testen der einzelnen Module}
 Ein weiterer Vorteil der Modularität ist, dass jedes Modul unabhängig von den anderen Modulen funktionsfähig ist. Dadurch kann die korrekte Funktionsweise für jedes Modul einzeln überprüft werden und man kann Fehler besser lokalisieren.
 Die Audiosimulation haben wir mithilfe eines selbstgeschriebenen Plottingprogramms überprüft. Dieses stellt die von der Audiosimulation versendeten Samples in Abhängigkeit zur Zeit dar. Damit kann manuell die Phasendifferenz von dem Graphen abgelesen und mit dem erwarteten Wert verglichen werden.
