@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Arch Linux) (preloaded format=xelatex 2016.2.22)  18 APR 2016 19:39
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Arch Linux) (preloaded format=xelatex 2016.2.22)  18 APR 2016 20:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1144,9 +1144,9 @@ Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 \listing@line=\count371
 )
 \verbatim@out=\write5
-runsystem(touch w18-test-20164181179.tex)...disabled (restricted).
+runsystem(touch w18-test-20164181243.tex)...disabled (restricted).
 
-runsystem(rm -f w18-test-20164181179.tex)...disabled (restricted).
+runsystem(rm -f w18-test-20164181243.tex)...disabled (restricted).
 
 
 
@@ -1535,19 +1535,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 100--100
 []\EU1/lmr/m/it/10 Abbildung 8: |Screenshot unseres Beispiel-
  []
 
+[7]
+File: img/GUI.png Graphic file (type QTm)
+ <use  "img/GUI.png" >
 File: img/glplot.png Graphic file (type QTm)
-<use  "img/glplot.png" > [7] [8])
+ <use  "img/glplot.png" > [8])
 \openout2 = `1D.aux'.
 
  (./1D.tex
 File: img/skizze.eps Graphic file (type eps)
- <img/skizze.eps> [9])
+
+<img/skizze.eps> [9])
 \openout2 = `2D.aux'.
 
  (./2D.tex
 File: img/skizze1d.eps Graphic file (type eps)
-
-<img/skizze1d.eps>
+ <img/skizze1d.eps>
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 21.
  [10])
@@ -1556,8 +1559,8 @@ nput line 21.
  (./3D.tex [11])
 \openout2 = `eval.aux'.
 
- (./eval.tex
-(./img/tested_positions_zoom.tex
+
+(./eval.tex (./img/tested_positions_zoom.tex
 File: img/tested_positions_zoom.eps Graphic file (type eps)
  <img/tested_positions_zoom.eps>)
 Overfull \hbox (14.49832pt too wide) in paragraph at lines 159--8
@@ -1575,27 +1578,31 @@ File: img/real.eps Graphic file (type eps)
 File: img/pos_1.jpg Graphic file (type QTm)
 
 <use  "img/pos_1.jpg" > [14]
-File: img/real_real.jpg Graphic file (type QTm)
- <use  "img/real_real.jpg" >
-File: img/real_data.png Graphic file (type QTm)
+File: img/sine.png Graphic file (type QTm)
+ <use  "img/sine.png" >
+File: img/square.png Graphic file (type QTm)
+ <use  "img/square.png" >
+Underfull \hbox (badness 2790) in paragraph at lines 59--59
+[]\EU1/lmr/m/it/10 Abbildung 19: |Die Richtungsbestimmung einer
+ []
 
-<use  "img/real_data.png" >) [15
+File: img/music.png Graphic file (type QTm)
+<use  "img/music.png" >
+File: img/sprechen.png Graphic file (type QTm)
+ <use  "img/sprechen.png" >) [15
 \@writefile{lof}{\defcounter {refsection}{0}\relax }\@writefile{lof}{\contentsl
-ine {figure}{\numberline {15}{\ignorespaces Genauigkeit in der Echtwelt\relax }
-}{15}{figure.caption.20}}
-\newlabel{fig:real}{{15}{15}{Genauigkeit in der Echtwelt\relax }{figure.caption
-.20}{}}
+ine {figure}{\numberline {16}{\ignorespaces Genauigkeit in der Echtwelt\relax }
+}{15}{figure.caption.23}}
+\newlabel{fig:real}{{16}{15}{Genauigkeit in der Echtwelt\relax }{figure.caption
+.23}{}}
 \@writefile{lof}{\defcounter {refsection}{0}\relax }\@writefile{lof}{\contentsl
-ine {figure}{\numberline {16}{\ignorespaces Versuchsaufbau zur Messung der Gena
+ine {figure}{\numberline {17}{\ignorespaces Versuchsaufbau zur Messung der Gena
 uigkeit der Richtungsbestimmung in der Schallkammer\relax }}{15}{figure.caption
-.21}}
-\newlabel{fig:real_reral}{{16}{15}{Versuchsaufbau zur Messung der Genauigkeit d
-er Richtungsbestimmung in der Schallkammer\relax }{figure.caption.21}{}}
+.24}}
+\newlabel{fig:real_reral}{{17}{15}{Versuchsaufbau zur Messung der Genauigkeit d
+er Richtungsbestimmung in der Schallkammer\relax }{figure.caption.24}{}}
 \@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsl
 ine {subsection}{\numberline {8.3}Alltagstest}{15}{subsection.8.3}}
-\@writefile{tdo}{\defcounter {refsection}{0}\relax }\@writefile{tdo}{\contentsl
-ine {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color  {orange}o}}\ ne
-u schreiben; neue Bilder}{15}{section*.22}}
 ]
 \openout2 = `ausblick.aux'.
 
@@ -1606,28 +1613,41 @@ LaTeX Warning: Marginpar on page 16 moved.
 \openout2 = `fazit.aux'.
 
 (./fazit.tex) [16
+\@writefile{tdo}{\defcounter {refsection}{0}\relax }\@writefile{tdo}{\contentsl
+ine {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color  {orange}o}}\ ad
+d mor \LaTeX  skill}{16}{section*.25}}
 \@writefile{lof}{\defcounter {refsection}{0}\relax }\@writefile{lof}{\contentsl
-ine {figure}{\numberline {17}{\ignorespaces Tatsächliche Position\relax }}{16}{
-figure.caption.23}}
-\newlabel{fig:real_real}{{17}{16}{Tatsächliche Position\relax }{figure.caption.
-23}{}}
+ine {figure}{\numberline {18}{\ignorespaces Die Richtungsbestimmung einer Sinus
+schwingung\relax }}{16}{figure.caption.26}}
+\newlabel{fig:sine}{{18}{16}{Die Richtungsbestimmung einer Sinusschwingung\rela
+x }{figure.caption.26}{}}
 \@writefile{lof}{\defcounter {refsection}{0}\relax }\@writefile{lof}{\contentsl
-ine {figure}{\numberline {18}{\ignorespaces Bestimmte Richtungen\relax }}{16}{f
-igure.caption.24}}
-\newlabel{fig:real_real_data}{{18}{16}{Bestimmte Richtungen\relax }{figure.capt
-ion.24}{}}
+ine {figure}{\numberline {19}{\ignorespaces Die Richtungsbestimmung einer Recht
+eckschwingung\relax }}{16}{figure.caption.27}}
+\newlabel{fig:squre}{{19}{16}{Die Richtungsbestimmung einer Rechteckschwingung\
+relax }{figure.caption.27}{}}
+\@writefile{lof}{\defcounter {refsection}{0}\relax }\@writefile{lof}{\contentsl
+ine {figure}{\numberline {20}{\ignorespaces Die Richtungsbestimmung von Musik\r
+elax }}{16}{figure.caption.28}}
+\newlabel{fig:music}{{20}{16}{Die Richtungsbestimmung von Musik\relax }{figure.
+caption.28}{}}
+\@writefile{lof}{\defcounter {refsection}{0}\relax }\@writefile{lof}{\contentsl
+ine {figure}{\numberline {21}{\ignorespaces Die Richtungsbestimmung von Stimme\
+relax }}{16}{figure.caption.29}}
+\newlabel{fig:speech}{{21}{16}{Die Richtungsbestimmung von Stimme\relax }{figur
+e.caption.29}{}}
 \@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsl
 ine {section}{\numberline {9}Ausblick}{16}{section.9}}
 \@writefile{tdo}{\defcounter {refsection}{0}\relax }\@writefile{tdo}{\contentsl
 ine {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color  {orange}o}}\ re
 write; sachen die gehen in Arbeit packen; Amplituden komplett raus}{16}{section
-*.25}}
+*.30}}
 \@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsl
-ine {section}{Ausblick}{16}{section*.25}}
+ine {section}{Ausblick}{16}{section*.30}}
 \@writefile{tdo}{\defcounter {refsection}{0}\relax }\@writefile{tdo}{\contentsl
 ine {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color  {orange}o}}\ vl
 l. mal wirklich unabhöngikeit v. schallgeschwindigkeit einbauen?}{16}{section*.
-26}}
+31}}
 \@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsl
 ine {section}{\numberline {10}Fazit}{16}{section.10}}
 ]
@@ -1668,12 +1688,12 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 94.
  ) 
 Here is how much of TeX's memory you used:
- 43604 strings out of 493668
- 815882 string characters out of 6150756
- 1296643 words of memory out of 5000000
- 46366 multiletter control sequences out of 15000+600000
+ 43624 strings out of 493668
+ 816280 string characters out of 6150756
+ 1299190 words of memory out of 5000000
+ 46384 multiletter control sequences out of 15000+600000
  11124 words of font info for 65 fonts, out of 8000000 for 9000
  1332 hyphenation exceptions out of 8191
- 63i,11n,122p,10376b,5139s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 63i,11n,122p,10376b,5171s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on main.pdf (19 pages).

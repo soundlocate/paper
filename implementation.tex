@@ -23,7 +23,7 @@ Um die Richtungsbestimmung unabhängig von Störfaktoren wie Rauschen und Reflex
 	\includegraphics[width=0.3\linewidth]{img/v3.png}
 	\caption{Aufbau unserer Messapparatur}
 	\label{tet}
-	\vspace{-1cm}
+	%\vspace{-1cm}
 \end{figure} \todo{add more \LaTeX skill}
 Um das durch die Simulation evaluierbare Verfahren praktisch zu testen und zu nutzen, muss nur die Quelle der Daten, also das erste Modul, ausgetauscht werden. Die Aufgabe des ersten Moduls ist es nun nicht mehr, virtuelle Mikrofone  zu simulieren, die virtuelle Schallquellen aufnehmen. Stattdessen müssen die Signale echter Mikrofone, welche echte Schallquellen aufnehmen eingelesen werden. Um die Signale der Mikrofone mit einem Computer zu verarbeiten, müssen sie digitalisiert werden. Zusätzlich benötigt man eine alternative Implementation des ersten Moduls, die die Daten von der Hardware annimmt und an das zweite Modul weiterleitet. Hierbei kommen wieder die Vorteile unserer modularen Vorgehensweise zum Tragen, da nur das erste Modul ersetzt werden muss und die gesamte restliche Software beibehalten werden kann. Dies sorgt auch dafür, dass die Simulation und die Realwelttests immer die gleichen Auswertungsalgorithmen verwenden und so sehr gut vergleichbar sind.
 \subsubsection{Mikrofonarray}
@@ -104,7 +104,7 @@ Wir haben ein Beispiel-Ausgabemodul in Javascript implementiert. Mit diesem ist 
 Die Simulation enthält eine weitere Implementation eines Ausgabemoduls. Auch diese visualisiert die bestimmten Richtungen, erlaubt es aber, diese auf der gleichen Benutzeroberfläche wie die Sollrichtung anzuzeigen. Dies gibt ein sehr direktes Feedback beim Entwickeln des Algorithmus zur Richtungsbestimmung. Dieses letzte Modul könnte allerdings, dank unseres modularen Konzeptes, bei Bedarf auch anders, z.B. als Plugin für eine \textit{Digital Audio Workstation} (\textit{DAW}) implementiert werden.
 
 \subsection{Zentrale Steuerung}
-Um die Konfiguration der einzelnen Module zu vereinfachen und schneller an neue Situationen anpassen zu können haben wir ein Programm entwickelt, dass alle Module mit der gewünschten Konfiguration startet und mit dem man alle Module konfigurieren kann. Außerdem überwacht das Programm die Ausführung aller Module, gibt etwahige Fehlermeldungen aus und startet die einzelnen Module nach kritischen Fehlern neu.
+Um die Konfiguration der einzelnen Module zu vereinfachen und schneller an neue Situationen anpassen zu können haben wir ein Programm entwickelt, dass alle Module mit der gewünschten Konfiguration startet und mit dem man alle Module konfigurieren kann. Außerdem überwacht das Programm die Ausführung aller Module, gibt etwahige Fehlermeldungen aus und startet die einzelnen Module nach kritischen Fehlern neu. \todo{sehr geile formulierung ;)}
 
 \begin{figure}[H]
   \centering

@@ -14,21 +14,23 @@
 \BOOKMARK [2][-]{subsection.4.3}{Fourier-Transformation\040\(Modul\0402\)}{section.4}% 14
 \BOOKMARK [2][-]{subsection.4.4}{Richtungsmodul\040\(Modul\0403\)}{section.4}% 15
 \BOOKMARK [2][-]{subsection.4.5}{Ausgabemodul\040\(Modul\0404\)}{section.4}% 16
-\BOOKMARK [2][-]{subsection.4.6}{Testen\040der\040einzelnen\040Module}{section.4}% 17
-\BOOKMARK [1][-]{section.5}{Eindimensionale\040Richtungsbestimmung}{}% 18
-\BOOKMARK [1][-]{section.6}{Zweidimensionale\040Richtungsbestimmung}{}% 19
-\BOOKMARK [2][-]{subsection.6.1}{Erweiterung\040der\040Theorie}{section.6}% 20
-\BOOKMARK [2][-]{subsection.6.2}{Analytische Lösung des Gleichungssystems}{section.6}% 21
-\BOOKMARK [1][-]{section.7}{Dreidimensionale\040Richtungsbestimmung}{}% 22
-\BOOKMARK [2][-]{subsection.7.1}{Erweiterung\040der\040Theorie}{section.7}% 23
-\BOOKMARK [2][-]{subsection.7.2}{Numerische Lösung des Gleichungssystems mit Singulärwertzerlegung und Gauss-Markow Algorithmus}{section.7}% 24
-\BOOKMARK [1][-]{section.8}{Evaluation}{}% 25
-\BOOKMARK [2][-]{subsection.8.1}{Audiosimulation}{section.8}% 26
-\BOOKMARK [2][-]{subsection.8.2}{Echtwelt}{section.8}% 27
-\BOOKMARK [2][-]{subsection.8.3}{Alltagstest}{section.8}% 28
-\BOOKMARK [1][-]{figure.caption.24}{\040Ausblick}{}% 29
-\BOOKMARK [1][-]{section.9}{Ausblick}{}% 30
-\BOOKMARK [1][-]{section*.25}{Ausblick}{}% 31
-\BOOKMARK [1][-]{section*.26}{\040Fazit}{}% 32
-\BOOKMARK [1][-]{section.10}{Fazit}{}% 33
-\BOOKMARK [1][-]{section.10}{Literaturverzeichnis}{}% 34
+\BOOKMARK [2][-]{subsection.4.6}{Zentrale\040Steuerung}{section.4}% 17
+\BOOKMARK [2][-]{subsection.4.7}{Testen\040der\040einzelnen\040Module}{section.4}% 18
+\BOOKMARK [1][-]{section.5}{Eindimensionale\040Richtungsbestimmung}{}% 19
+\BOOKMARK [1][-]{section.6}{Zweidimensionale\040Richtungsbestimmung}{}% 20
+\BOOKMARK [2][-]{subsection.6.1}{Erweiterung\040der\040Theorie}{section.6}% 21
+\BOOKMARK [2][-]{subsection.6.2}{Analytische Lösung des Gleichungssystems}{section.6}% 22
+\BOOKMARK [1][-]{section.7}{Dreidimensionale\040Richtungsbestimmung}{}% 23
+\BOOKMARK [2][-]{subsection.7.1}{Erweiterung\040der\040Theorie}{section.7}% 24
+\BOOKMARK [2][-]{subsection.7.2}{Numerische Lösung des Gleichungssystems mit Singulärwertzerlegung und Gauss-Markow Algorithmus}{section.7}% 25
+\BOOKMARK [2][-]{subsection.7.3}{Zusammenfassen von ähnlichen Richtungen}{section.7}% 26
+\BOOKMARK [1][-]{section.8}{Evaluation}{}% 27
+\BOOKMARK [2][-]{subsection.8.1}{Audiosimulation}{section.8}% 28
+\BOOKMARK [2][-]{subsection.8.2}{Echtwelt}{section.8}% 29
+\BOOKMARK [2][-]{subsection.8.3}{Alltagstest}{section.8}% 30
+\BOOKMARK [1][-]{figure.caption.29}{\040Ausblick}{}% 31
+\BOOKMARK [1][-]{section.9}{Ausblick}{}% 32
+\BOOKMARK [1][-]{section*.30}{Ausblick}{}% 33
+\BOOKMARK [1][-]{section*.31}{\040Fazit}{}% 34
+\BOOKMARK [1][-]{section.10}{Fazit}{}% 35
+\BOOKMARK [1][-]{section.10}{Literaturverzeichnis}{}% 36

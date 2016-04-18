@@ -34,7 +34,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.5}Ausgabemodul (Modul 4)}{7}{subsection.4.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.6}Testen der einzelnen Module}{7}{subsection.4.6}
+\contentsline {subsection}{\numberline {4.6}Zentrale Steuerung}{7}{subsection.4.6}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.7}Testen der einzelnen Module}{8}{subsection.4.7}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {5}Eindimensionale Richtungsbestimmung}{9}{section.5}
 \defcounter {refsection}{0}\relax 
@@ -50,14 +52,16 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {7.2}Numerische Lösung des Gleichungssystems mit Singulärwertzerlegung und Gauss-Markow Algorithmus}{11}{subsection.7.2}
 \defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {7.3}Zusammenfassen von ähnlichen Richtungen}{12}{subsection.7.3}
+\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {8}Evaluation}{12}{section.8}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {8.1}Audiosimulation}{12}{subsection.8.1}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {8.2}Echtwelt}{14}{subsection.8.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {9} Ausblick}{16}{figure.caption.24}
+\contentsline {section}{\numberline {9} Ausblick}{16}{figure.caption.29}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {10} Fazit}{16}{section*.26}
+\contentsline {section}{\numberline {10} Fazit}{16}{section*.31}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{Literaturverzeichnis}{i}{section.10}
