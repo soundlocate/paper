@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Arch Linux) (preloaded format=xelatex 2016.2.22)  16 APR 2016 19:22
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Arch Linux) (preloaded format=xelatex 2016.2.22)  18 APR 2016 19:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1144,9 +1144,9 @@ Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 \listing@line=\count371
 )
 \verbatim@out=\write5
-runsystem(touch w18-test-20164161162.tex)...disabled (restricted).
+runsystem(touch w18-test-20164181179.tex)...disabled (restricted).
 
-runsystem(rm -f w18-test-20164161162.tex)...disabled (restricted).
+runsystem(rm -f w18-test-20164181179.tex)...disabled (restricted).
 
 
 
@@ -1442,7 +1442,10 @@ File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
 ]
 \openout2 = `problematik.aux'.
 
- (./problematik.tex)
+ (./problematik.tex
+Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
+ine 2.
+)
 \openout2 = `existing.aux'.
 
  (./existing.tex
@@ -1464,16 +1467,43 @@ File: img/flowchart.pdf Graphic file (type QTm)
 File: img/bildsimulation.png Graphic file (type QTm)
 
 <use  "img/bildsimulation.png" > [3]
-File: img/tet.png Graphic file (type QTm)
- <use  "img/tet.png" >
+File: img/v1.png Graphic file (type QTm)
+ <use  "img/v1.png" >
+File: img/v2.png Graphic file (type QTm)
+ <use  "img/v2.png" >
+File: img/v3.png Graphic file (type QTm)
+
+<use  "img/v3.png" >
 File: img/chara_mess.jpg Graphic file (type QTm)
+ <use  "img/chara_mess.jpg" > [4]
+Overfull \hbox (14.67601pt too wide) in paragraph at lines 41--41
+[][][][]\EU1/lmr/m/n/10 messapperatur 
+ []
 
-<use  "img/chara_mess.jpg" > [4]
+
+Overfull \hbox (14.67601pt too wide) in paragraph at lines 41--41
+[][][][]\EU1/lmr/m/n/10 messapperatur 
+ []
+
+
+Overfull \hbox (14.67601pt too wide) in paragraph at lines 41--41
+[][][][]\EU1/lmr/m/n/10 messapperatur 
+ []
+
+
+Overfull \hbox (14.67601pt too wide) in paragraph at lines 41--41
+[][][][]\EU1/lmr/m/n/10 messapperatur 
+ []
+
 File: img/badMic.pdf Graphic file (type QTm)
- <use  "img/badMic.pdf" >
+<use  "img/badMic.pdf" >
 File: img/goodMic.pdf Graphic file (type QTm)
+ <use  "img/goodMic.pdf" >
+Underfull \hbox (badness 10000) in paragraph at lines 49--50
 
-<use  "img/goodMic.pdf" > [5]
+ []
+
+[5]
 Missing character: There is no ^^? in font [lmroman10-regular]:mapping=tex-text
 !
 Missing character: There is no ^^? in font [lmroman10-regular]:mapping=tex-text
@@ -1501,17 +1531,17 @@ File: img/polarconvert.eps Graphic file (type eps)
 <img/polarconvert.eps>) [6]
 File: img/output.png Graphic file (type QTm)
  <use  "img/output.png" >
-Underfull \hbox (badness 10000) in paragraph at lines 92--92
+Underfull \hbox (badness 10000) in paragraph at lines 100--100
 []\EU1/lmr/m/it/10 Abbildung 8: |Screenshot unseres Beispiel-
  []
 
 File: img/glplot.png Graphic file (type QTm)
-<use  "img/glplot.png" > [7])
+<use  "img/glplot.png" > [7] [8])
 \openout2 = `1D.aux'.
 
  (./1D.tex
 File: img/skizze.eps Graphic file (type eps)
- <img/skizze.eps> [8])
+ <img/skizze.eps> [9])
 \openout2 = `2D.aux'.
 
  (./2D.tex
@@ -1520,10 +1550,10 @@ File: img/skizze1d.eps Graphic file (type eps)
 <img/skizze1d.eps>
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 21.
- [9])
+ [10])
 \openout2 = `3D.aux'.
 
- (./3D.tex [10])
+ (./3D.tex [11])
 \openout2 = `eval.aux'.
 
  (./eval.tex
@@ -1534,58 +1564,72 @@ Overfull \hbox (14.49832pt too wide) in paragraph at lines 159--8
  [][] 
  []
 
-[11] (./img/pos_sweep.tex
+[12] (./img/pos_sweep.tex
 File: img/pos_sweep.eps Graphic file (type eps)
  <img/pos_sweep.eps>) (./img/freq_sweep.tex
 File: img/freq_sweep.eps Graphic file (type eps)
 
-<img/freq_sweep.eps>) [12] (./img/real.tex
+<img/freq_sweep.eps>) [13] (./img/real.tex
 File: img/real.eps Graphic file (type eps)
  <img/real.eps>)
 File: img/pos_1.jpg Graphic file (type QTm)
 
-<use  "img/pos_1.jpg" > [13]
+<use  "img/pos_1.jpg" > [14]
 File: img/real_real.jpg Graphic file (type QTm)
  <use  "img/real_real.jpg" >
 File: img/real_data.png Graphic file (type QTm)
 
-<use  "img/real_data.png" >) [14
+<use  "img/real_data.png" >) [15
 \@writefile{lof}{\defcounter {refsection}{0}\relax }\@writefile{lof}{\contentsl
 ine {figure}{\numberline {15}{\ignorespaces Genauigkeit in der Echtwelt\relax }
-}{14}{figure.caption.18}}
-\newlabel{fig:real}{{15}{14}{Genauigkeit in der Echtwelt\relax }{figure.caption
-.18}{}}
+}{15}{figure.caption.20}}
+\newlabel{fig:real}{{15}{15}{Genauigkeit in der Echtwelt\relax }{figure.caption
+.20}{}}
 \@writefile{lof}{\defcounter {refsection}{0}\relax }\@writefile{lof}{\contentsl
 ine {figure}{\numberline {16}{\ignorespaces Versuchsaufbau zur Messung der Gena
-uigkeit der Richtungsbestimmung in der Schallkammer\relax }}{14}{figure.caption
-.19}}
-\newlabel{fig:real_reral}{{16}{14}{Versuchsaufbau zur Messung der Genauigkeit d
-er Richtungsbestimmung in der Schallkammer\relax }{figure.caption.19}{}}
+uigkeit der Richtungsbestimmung in der Schallkammer\relax }}{15}{figure.caption
+.21}}
+\newlabel{fig:real_reral}{{16}{15}{Versuchsaufbau zur Messung der Genauigkeit d
+er Richtungsbestimmung in der Schallkammer\relax }{figure.caption.21}{}}
 \@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsl
-ine {subsection}{\numberline {8.3}Alltagstest}{14}{subsection.8.3}}
+ine {subsection}{\numberline {8.3}Alltagstest}{15}{subsection.8.3}}
+\@writefile{tdo}{\defcounter {refsection}{0}\relax }\@writefile{tdo}{\contentsl
+ine {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color  {orange}o}}\ ne
+u schreiben; neue Bilder}{15}{section*.22}}
 ]
 \openout2 = `ausblick.aux'.
 
  (./ausblick.tex)
+
+LaTeX Warning: Marginpar on page 16 moved.
+
 \openout2 = `fazit.aux'.
 
- (./fazit.tex) [15
+(./fazit.tex) [16
 \@writefile{lof}{\defcounter {refsection}{0}\relax }\@writefile{lof}{\contentsl
-ine {figure}{\numberline {17}{\ignorespaces Tatsächliche Position\relax }}{15}{
-figure.caption.20}}
-\newlabel{fig:real_real}{{17}{15}{Tatsächliche Position\relax }{figure.caption.
-20}{}}
+ine {figure}{\numberline {17}{\ignorespaces Tatsächliche Position\relax }}{16}{
+figure.caption.23}}
+\newlabel{fig:real_real}{{17}{16}{Tatsächliche Position\relax }{figure.caption.
+23}{}}
 \@writefile{lof}{\defcounter {refsection}{0}\relax }\@writefile{lof}{\contentsl
-ine {figure}{\numberline {18}{\ignorespaces Bestimmte Richtungen\relax }}{15}{f
-igure.caption.21}}
-\newlabel{fig:real_real_data}{{18}{15}{Bestimmte Richtungen\relax }{figure.capt
-ion.21}{}}
+ine {figure}{\numberline {18}{\ignorespaces Bestimmte Richtungen\relax }}{16}{f
+igure.caption.24}}
+\newlabel{fig:real_real_data}{{18}{16}{Bestimmte Richtungen\relax }{figure.capt
+ion.24}{}}
 \@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsl
-ine {section}{\numberline {9}Ausblick}{15}{section.9}}
+ine {section}{\numberline {9}Ausblick}{16}{section.9}}
+\@writefile{tdo}{\defcounter {refsection}{0}\relax }\@writefile{tdo}{\contentsl
+ine {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color  {orange}o}}\ re
+write; sachen die gehen in Arbeit packen; Amplituden komplett raus}{16}{section
+*.25}}
 \@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsl
-ine {section}{Ausblick}{15}{section.9}}
+ine {section}{Ausblick}{16}{section*.25}}
+\@writefile{tdo}{\defcounter {refsection}{0}\relax }\@writefile{tdo}{\contentsl
+ine {todo}{\color@fb@x {}{black}{}{orange}{\leavevmode {\color  {orange}o}}\ vl
+l. mal wirklich unabhöngikeit v. schallgeschwindigkeit einbauen?}{16}{section*.
+26}}
 \@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsl
-ine {section}{\numberline {10}Fazit}{15}{section.10}}
+ine {section}{\numberline {10}Fazit}{16}{section.10}}
 ]
 LaTeX Font Info:    Try loading font information for EU1+lmtt on input line 93.
 
@@ -1624,12 +1668,12 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 94.
  ) 
 Here is how much of TeX's memory you used:
- 43473 strings out of 493668
- 812818 string characters out of 6150756
- 1290045 words of memory out of 5000000
- 46237 multiletter control sequences out of 15000+600000
+ 43604 strings out of 493668
+ 815882 string characters out of 6150756
+ 1296643 words of memory out of 5000000
+ 46366 multiletter control sequences out of 15000+600000
  11124 words of font info for 65 fonts, out of 8000000 for 9000
  1332 hyphenation exceptions out of 8191
- 63i,11n,122p,10376b,5023s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 63i,11n,122p,10376b,5139s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (18 pages).
+Output written on main.pdf (19 pages).

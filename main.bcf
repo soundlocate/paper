@@ -2247,15 +2247,14 @@
     <bcf:citekey order="7">websockets</bcf:citekey>
     <bcf:citekey order="8">OpenAL</bcf:citekey>
     <bcf:citekey order="9">Rausch</bcf:citekey>
-    <bcf:citekey order="10">elektret</bcf:citekey>
-    <bcf:citekey order="11">Gnuplot</bcf:citekey>
-    <bcf:citekey order="12">Powering_microphones</bcf:citekey>
-    <bcf:citekey order="13">portaudio</bcf:citekey>
-    <bcf:citekey order="14">FFTW</bcf:citekey>
-    <bcf:citekey order="15">Anderson:1990:LPL:110382.110385</bcf:citekey>
-    <bcf:citekey order="16">mathematica</bcf:citekey>
-    <bcf:citekey order="17">middlebrooks1991sound</bcf:citekey>
-    <bcf:citekey order="18">BASOTECT</bcf:citekey>
+    <bcf:citekey order="10">Gnuplot</bcf:citekey>
+    <bcf:citekey order="11">Powering_microphones</bcf:citekey>
+    <bcf:citekey order="12">portaudio</bcf:citekey>
+    <bcf:citekey order="13">FFTW</bcf:citekey>
+    <bcf:citekey order="14">Anderson:1990:LPL:110382.110385</bcf:citekey>
+    <bcf:citekey order="15">mathematica</bcf:citekey>
+    <bcf:citekey order="16">middlebrooks1991sound</bcf:citekey>
+    <bcf:citekey order="17">BASOTECT</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="nty" type="entry" sortscheme="nty">
   <bcf:sorting>
