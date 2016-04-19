@@ -27,57 +27,51 @@ Man sieht, dass die Genauigkeit der Richtungsbestimmung (fast) unabhängig von d
 \subsection{Echtwelt}
 In unseren Simulationen hat sich gezeigt, dass unser Verfahren sehr genau arbeitet. Um zu untersuchen, wie genau es unter dem Einfluss von Störungen und mit den Fehlern durch die Aufnahme mit Mikrofonen arbeitet, haben wir für acht verschiedene Positionen der Schallquelle die Abweichung der Richtung bestimmt. Diese Messung haben wir in einem mit speziellem Schaumstoff~\cite{BASOTECT} ausgekleideten Raum durchgeführt, um Störungen wie Reflexionen, in der Testphase, zu minimieren. Der Lautsprecher war jeweils $0.75\mathrm{m}$ von dem Zentrum der Mikrofone entfernt.
 \begin{figure}[H]
+\begin{minipage}[b]{0.675\textwidth}
   \centering
-  \resizebox{!}{0.55\textwidth}{\input{img/real}}
+  \resizebox{!}{0.675\textwidth}{\input{img/real}}
   \caption{Genauigkeit in der Echtwelt}
   \label{fig:real}
-\end{figure}
-\begin{figure}[H]
+\end{minipage}
+\hfill
+\begin{minipage}[b]{0.3\textwidth}
   \centering
-  \includegraphics[width=.5\textwidth]{img/pos_1}
+  \includegraphics[width=\textwidth]{img/pos_1}
   \caption{Versuchsaufbau zur Messung der Genauigkeit der Richtungsbestimmung in der Schallkammer}
   \label{fig:real_reral}
+\end{minipage}
 \end{figure}
 Für die acht verschiedenen Richtungen hatte die Richtungsbestimmung eine Genauigkeit von $3.9^\circ \pm 0.13^\circ$. Allerdings hatte der Lautsprecher bei dem von uns gewählten Abstand eine Winkelgröße von $3.2^\circ$, weshalb dies ein sehr guter Wert ist. Die Richtungsbestimmung mit unserem Verfahren ist also auch in der Echtwelt mit großen Abständen genauer als beim Menschen.
 
 \subsection{Alltagstest} 
 Um die Verwendbarkeit unseres Verfahren auch außerhalb einer Schallkammer zu testen, haben unser System mit verschiedenen Schallquellen unter Realbedingungen getestet.\\
-\todo{add mor \LaTeX skill}
-\begin{minipage}{0.49\linewidth}
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=\textwidth]{img/sine.png}
-		\caption{Die Richtungsbestimmung einer Sinusschwingung}
-		\label{fig:sine}
-	\end{figure}
-\end{minipage}\hfill
-\begin{minipage}{0.49\linewidth}
-   \begin{figure}[H]
-   	\hfill
-   	\centering
-   	\includegraphics[width=\textwidth]{img/square.png}
-   	\caption{Die Richtungsbestimmung einer Rechteckschwingung}
-   	\label{fig:squre}
-   \end{figure}
-\end{minipage}
-\begin{minipage}{0.49\linewidth}
 \begin{figure}[H]
-	\hfill
-	\centering
-	\includegraphics[width=\textwidth]{img/music.png}
-	\caption{Die Richtungsbestimmung von Musik}
-	\label{fig:music}
+  \centering
+  \begin{subfigure}[b]{0.475\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{img/sine.png}
+    \caption{Die Richtungsbestimmung einer Sinusschwingung\label{fig:sine}}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.475\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{img/square.png}
+    \caption{Die Richtungsbestimmung einer Rechteckschwingung\label{fig:squre}}
+  \end{subfigure}
+  \vskip\baselineskip
+  \begin{subfigure}[b]{0.475\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{img/music.png}
+    \caption{Die Richtungsbestimmung von Musik\label{fig:music}}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.475\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{img/sprechen.png}
+    \caption{Die Richtungsbestimmung von Stimme\label{fig:speech}}
+  \end{subfigure}
+
+  \caption{Verschiedene Tests der Richtungsbestimmung}
+  \label{fig:tests}
 \end{figure}
-\end{minipage}
-\begin{minipage}{0.49\linewidth}
-\begin{figure}[H]
-	\hfill
-	\centering
-	\includegraphics[width=\textwidth]{img/sprechen.png}
-	\caption{Die Richtungsbestimmung von Stimme}
-	\label{fig:speech}
-\end{figure}
-\end{minipage}
-\vspace{10pt}
-\\
 Man kann erkennen, dass die mit unserem Verfahren bestimmte Richtung sehr gut mit der tatsächlichen Richtung übereinstimmt, obwohl Störungen wie Reflexionen auftreten. Des weiteren ist zu erkennen, das selbst bei komplizierten Signalen mit einem Breiten Frequenzspektrum, wie Musik, die Ortung gut funktioniert. Dies zeigt, dass unser Verfahren auch für Echtweltsituationen gut geeignet ist und es auch hierbei nur eine sehr geringe Streuung der Richtung gibt.
