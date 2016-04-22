@@ -1,8 +1,8 @@
-\documentclass[10pt,a4paper]{article}
+\documentclass[german,10pt,a4paper]{article}
 
 \usepackage{url}
 \usepackage[hidelinks]{hyperref}
-%\usepackage{fancyhdr}
+% \usepackage{fancyhdr}
 \usepackage{fontspec}
 \usepackage{csquotes}
 \usepackage[ngerman]{babel}
@@ -18,13 +18,17 @@
 \usepackage{listings,xcolor,gnuplottex}
 \usepackage[font={it}]{caption}
 \usepackage{subcaption}
+\usepackage{siunitx}
+\usepackage{booktabs}
+%\usepackage[german]{translator}
 \pagestyle{headings}
-
+\selectlanguage{german}%
 % Space savings:
 \usepackage[top=5cm, left=2.5cm, right=2.5cm, bottom=3cm]{geometry}
 \setlength\parindent{0pt}
-%\usepackage[subtle]{savetrees}
-
+% \usepackage[subtle]{savetrees}
+\flushbottom
+\raggedbottom
 % Mathematica listening
 \lstset{language=Mathematica} % mathmatica snippets
 \lstset{basicstyle={\sffamily\footnotesize},
@@ -47,7 +51,7 @@
 \date{\today}
 
 \begin{document}
-  \begin{centering}
+\begin{centering}
     Jugend forscht Arbeit
   	{\let\newpage\relax\maketitle}
   	\begin{figure}
@@ -56,40 +60,40 @@
   		\vspace{20pt}
   		\includegraphics[width=0.2\textwidth]{img/sfn}
   	\end{figure}
-  \end{centering}
-  \thispagestyle{empty}
-  \newgeometry{top=2.5cm, left=2.5cm, right=2.5cm, bottom=2cm}
-  \newpage
-  \tableofcontents
-  \thispagestyle{empty}
-  
-  \newpage
-  \setcounter{page}{1}
-  %begin the content
+\end{centering}
+\thispagestyle{empty}
+\newgeometry{top=2.5cm, left=2.5cm, right=2.5cm, bottom=2cm}
+\newpage
+\tableofcontents
+\thispagestyle{empty}
 
-  \begingroup
-    \let\clearpage\relax
-    \include{problematik}
-    \include{existing}
-    \include{konzept}
-    \include{implementation}
-    \include{1D}
-    \include{2D}
-    \include{3D}
-    \include{eval}
+\newpage
+\setcounter{page}{1}
+% begin the content
 
-    \addcontentsline{toc}{section}{\protect\numberline{9} Ausblick}
+\begingroup
+\let\clearpage\relax
+\include{problematik}
+\include{existing}
+\include{konzept}
+\include{implementation}
+\include{1D}
+\include{2D}
+\include{3D}
+\include{eval}
 
-    \include{ausblick}
+\addcontentsline{toc}{section}{\protect\numberline{9} Ausblick}
 
-    \addcontentsline{toc}{section}{\protect\numberline{10} Fazit}
+\include{ausblick}
 
-    \include{fazit}
-  \endgroup
+\addcontentsline{toc}{section}{\protect\numberline{10} Fazit}
 
-  \pagebreak % Quellen und co
-  \pagenumbering{roman}
-  \setcounter{page}{1}
-  \addcontentsline{toc}{section}{Literaturverzeichnis}
-  \printbibliography
+\include{fazit}
+\endgroup
+
+\pagebreak % Quellen und co
+\pagenumbering{roman}
+\setcounter{page}{1}
+\addcontentsline{toc}{section}{Literaturverzeichnis}
+\printbibliography
 \end{document}
