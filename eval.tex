@@ -1,7 +1,7 @@
 \section{Evaluation}
-Um unser Verfahren zur Richtungsbestimmung zu testen und die Genauigkeit zu bestimmen, haben wir es in Simulation und Echtwelt evaluiert. Dabei haben wir die Abweichung der Richtungsbestimmung für verschiedene Richtungen und Frequenzen bestimmt.
+Um unser Verfahren zur Richtungsbestimmung zu testen und die Genauigkeit zu bestimmen, haben wir es in Simulation und Realwelt evaluiert. Dabei haben wir die Abweichung der Richtungsbestimmung für verschiedene Richtungen und Frequenzen bestimmt.
 \subsection{Audiosimulation}
-Zunächst haben wir unser Verfahren in der Simulation getestet, da diese automatisierte Tests ermöglicht und somit leicht sehr viele verschiedene Richtungen und Frequenzen getestet werden können. Dabei haben wir die Schallquellen für verschiedene Radien auf einer Kugeloberfläche positioniert. Der Tetraeder wurde mit \SI{0.28}{\meter} Kantenlänge simuliert, dies entspricht dem Tetraeder, den wir gebaut haben. Bei der Positionsabhängigkeit haben wir außerdem auch unseren dritten Prototypen simuliert, mit \SI{0.165}{\meter} Kantenlänge, dies entspricht ebenfalls unserem tatsächlichen Prototypen. Die Schallquellen wurden mit einer \SI{500}{\hertz}-Sinusschwingung simuliert.
+Zunächst haben wir unser Verfahren in der Simulation getestet, da diese automatisierte Tests ermöglicht und somit leicht sehr viele verschiedene Richtungen und Frequenzen getestet werden können. Dabei haben wir die Schallquellen für verschiedene Radien auf einer Kugeloberfläche positioniert. Der Tetraeder wurde mit \SI{0.28}{\meter} Kantenlänge simuliert, dies entspricht dem ersten Prototypen. Bei der Positionsabhängigkeit haben wir außerdem auch unseren dritten Prototypen simuliert, mit \SI{0.165}{\meter} Kantenlänge, dies entspricht ebenfalls unserem tatsächlichen Prototypen. Die Schallquellen wurden mit einer \SI{500}{\hertz}-Sinusschwingung simuliert.
 \begin{figure}[H]
   \centering
   \resizebox{0.850\textwidth}{!}{\input{img/tested_positions_zoom}}
@@ -13,7 +13,7 @@ Für jeden getesteten Radius haben wir Punkte auf der Kugeloberfläche in \ang{2
   \resizebox{0.750\textwidth}{!}{\input{img/pos_sweep}}
   \caption{Genauigkeit für verschiedene Abstände\label{fig:pos_sweep}}
 \end{figure}
-Bei einem Radius von \SI{0.25}{\meter} gibt es einen Ausreißer mit \ang[separate-uncertainty = true]{4.0 +- 0.4}, da sich die Positionen innerhalb des Aufbaus befinden. Außerdem lässt sich insbesonders in den Randbereichen eine starke Verbesserung duch die Verwendung von acht Mikrofonen erkennen. Bis \SI{1.75}{\meter}, bei acht Mikrofonen sogar bis mindestens \SI{2}{\meter}, bleibt die Abweichung unter \ang{2}, ist also deutlich besser als die Wahrnehmung beim Menschen. Dieser kann auf sehr kurzen Distanzen zwischen \SI{10}{\centi\meter} bis \SI{40}{\centi\meter} gerade einmal mit \ang{3}~\cite{middlebrooks1991sound} Genauigkeit die Richtung bestimmen.
+Bei einem Radius von \SI{0.25}{\meter} gibt es einen Ausreißer mit \ang[separate-uncertainty = true]{4.0 +- 0.4}, da sich die Positionen innerhalb des Aufbaus befinden. Außerdem lässt sich insbesondere in den Randbereichen eine starke Verbesserung duch die Verwendung von acht Mikrofonen erkennen. Bis \SI{1.75}{\meter}, bei acht Mikrofonen sogar bis mindestens \SI{2}{\meter}, bleibt die Abweichung unter \ang{2}, ist also deutlich besser als die Wahrnehmung des Menschen. Dieser kann auf sehr kurzen Distanzen zwischen \SI{10}{\centi\meter} bis \SI{40}{\centi\meter} gerade einmal mit \ang{3}~\cite{middlebrooks1991sound} Genauigkeit die Richtung bestimmen.
 Um die Abhängigkeit der Genauigkeit der Richtungsbestimmung von der Frequenz zu untersuchen, haben wir die Schallquellen wieder auf einer Kugeloberfläche mit \ang{2} Auflösung platziert und haben anstelle des Radius die Frequenz variiert. Für den Radius haben wir \SI{1.4}{\meter} gewählt.
 \begin{figure}[H]
   \centering
@@ -21,13 +21,13 @@ Um die Abhängigkeit der Genauigkeit der Richtungsbestimmung von der Frequenz zu
   \caption{Genauigkeit für verschiedene Frequenzen\label{fig:freq_seep}}
 \end{figure}
 Man sieht, dass die Genauigkeit der Richtungsbestimmung (fast) unabhängig von der Frequenz der Schallquelle ist. Für Frequenzen über \SI{675}{\hertz} ist die Bedingung, dass die Abstände der Mikrofone kleiner als die halbe Wellenlänge sein muss, nicht mehr erfüllt.
-\subsection{Echtwelt}
+\subsection{Realwelt}
 In unseren Simulationen hat sich gezeigt, dass unser Verfahren sehr genau arbeitet. Um zu untersuchen, wie genau es unter dem Einfluss von Störungen und mit den Fehlern durch die Aufnahme mit Mikrofonen arbeitet, haben wir für acht verschiedene Positionen der Schallquelle die Abweichung der Richtung bestimmt. Diese Messung haben wir in einem mit speziellem Schaumstoff~\cite{BASOTECT} ausgekleideten Raum durchgeführt, um Störungen, wie Reflexionen, in der Testphase zu minimieren. Der Lautsprecher war jeweils \SI{0.75}{\meter} von dem Zentrum der Mikrofone entfernt.
 \begin{figure}[H]
 \begin{minipage}[b]{0.675\textwidth}
   \centering
   \resizebox{!}{0.675\textwidth}{\input{img/real}}
-  \caption{Genauigkeit in der Echtwelt\label{fig:real}}
+  \caption{Genauigkeit in der Realwelt\label{fig:real}}
 \end{minipage}
 \hfill
 \begin{minipage}[b]{0.3\textwidth}
@@ -36,36 +36,36 @@ In unseren Simulationen hat sich gezeigt, dass unser Verfahren sehr genau arbeit
   \caption{Versuchsaufbau zur Messung der Genauigkeit der Richtungsbestimmung in der Schallkammer.\label{fig:real_reral}}
 \end{minipage}
 \end{figure}
-Für die acht verschiedenen Richtungen hatte die Richtungsbestimmung eine Genauigkeit von \ang[separate-uncertainty = true]{3.9 +- 0.13}. Allerdings hatte der Lautsprecher bei dem von uns gewählten Abstand eine Winkelgröße von \ang{3.2}, weshalb dies ein sehr guter Wert ist. Die Richtungsbestimmung mit unserem Verfahren ist also auch in der Echtwelt mit großen Abständen genauer als beim Menschen.
+Für die acht verschiedenen Richtungen hatte die Richtungsbestimmung eine Genauigkeit von \ang[separate-uncertainty = true]{3.9 +- 0.13}. Allerdings hatte der Lautsprecher bei dem von uns gewählten Abstand eine Winkelgröße von \ang{3.2}, weshalb dies ein sehr guter Wert ist. Die Richtungsbestimmung mit unserem Verfahren ist also auch in der Realwelt mit großen Abständen genauer als beim Menschen.
 
 \subsection{Alltagstest} 
-Um die Verwendbarkeit unseres Verfahrens auch außerhalb einer Schallkammer zu testen, haben wir unser System mit verschiedenen Schallquellen unter Realbedingungen getestet.
+Um die Verwendbarkeit unseres Verfahrens auch außerhalb einer Schallkammer zu testen, haben wir unser System mit verschiedenen Schallquellen unter realen Bedingungen getestet.
 \begin{figure}[H]
   \centering
   \begin{subfigure}[b]{0.475\textwidth}
     \centering
     \includegraphics[width=\textwidth]{img/sine.png}
-    \caption{Die Richtungsbestimmung einer Sinusschwingung\label{fig:sine}}
+    \caption{Richtungsbestimmung einer Sinusschwingung\label{fig:sine}}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.475\textwidth}
     \centering
     \includegraphics[width=\textwidth]{img/square.png}
-    \caption{Die Richtungsbestimmung einer Rechteckschwingung\label{fig:squre}}
+    \caption{Richtungsbestimmung einer Rechteckschwingung\label{fig:squre}}
   \end{subfigure}
   \vskip\baselineskip
   \begin{subfigure}[b]{0.475\textwidth}
     \centering
     \includegraphics[width=\textwidth]{img/music.png}
-    \caption{Die Richtungsbestimmung von Musik\label{fig:music}}
+    \caption{Richtungsbestimmung von Musik\label{fig:music}}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.475\textwidth}
     \centering
     \includegraphics[width=\textwidth]{img/sprechen.png}
-    \caption{Die Richtungsbestimmung von Stimme\label{fig:speech}}
+    \caption{Richtungsbestimmung von Stimme\label{fig:speech}}
   \end{subfigure}
 
   \caption{Verschiedene Tests der Richtungsbestimmung\label{fig:tests}}
 \end{figure}
-Auf den Bildern sieht man Screenshots der Ausgabe für Realwelttests, die wir mit unserem dritten Prototyp durchgeführt haben. Der gestrichelte Würfel entspricht dem Würfel, der von den Mikrofonspitzen gebildet wird. Der blaue Punkt makiert den Nullpunkt und die Pfeile zeigen in die durch den Algorithmus bestimmte Richtung. In allen Fällen war die Schallquelle an der gleichen Stelle positioniert. Die Farbe der Pfeile entspricht der Frequenz. Man kann erkennen, dass die mit unserem Verfahren bestimmte Richtung sehr gut mit der tatsächlichen Richtung übereinstimmt, obwohl Störungen, wie Reflexionen, auftreten. Des Weiteren ist zu erkennen, dass selbst bei komplizierten Signalen mit einem breiten Frequenzspektrum, wie zum Beispiel Musik, die Ortung gut funktioniert. Dies zeigt, dass unser Verfahren auch für Echtweltsituationen gut geeignet ist und es auch hierbei nur eine sehr geringe Streuung der Richtung gibt.
+Auf den Bildern sieht man Screenshots der Ausgabe für reale Tests, die wir mit unserem dritten Prototyp durchgeführt haben. Der gestrichelte Würfel entspricht dem Würfel, der von den Mikrofonspitzen gebildet wird. Der blaue Punkt makiert den Nullpunkt und die Pfeile zeigen in die durch den Algorithmus bestimmte Richtung. In allen Fällen war die Schallquelle an der gleichen Stelle positioniert. Die Farbe der Pfeile entspricht der Frequenz. Man kann erkennen, dass die mit unserem Verfahren bestimmte Richtung sehr gut mit der tatsächlichen Richtung übereinstimmt, obwohl Störungen, wie Reflexionen, auftreten. Des Weiteren ist zu erkennen, dass selbst bei komplizierten Signalen mit einem breiten Frequenzspektrum, wie zum Beispiel Musik, die Ortung gut funktioniert. Dies zeigt, dass unser Verfahren auch für Realwelt gut geeignet ist und es auch hierbei nur eine sehr geringe Streuung der Richtung gibt.
