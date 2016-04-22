@@ -72,17 +72,17 @@ Durch eine diskrete Fourier-Transformation von $n$ reellen Zahlen erhält man ei
 f = j\frac{r}{n}
 \end{equation}
 Dabei ist $r$ die Abtastrate des Signals. Die Amplitude $A$ des Sinus lässt sich mit dem Betrag der komplexen Zahl berechnen und die Phase $\phi$ mit dem Arcus-Tangens. Dies entspricht der Koordinatentransformation von einem kartesischen in ein polares Koordinatensystem:\\
-\begin{minipage}{0.59\textwidth}
-   \begin{multline}
-    A = \sqrt[]{{\Re(z)}^2 + {\Im(z)}^2}\\
-    \phi = \operatorname{atan2}(\Im(z), \Re(z))\\
-    \operatorname{atan2}(y,x) := \begin{cases} \arctan\frac{y}{x} & \mathrm{für}\ x > 0\\ \arctan\frac{y}{x} + \pi & \mathrm{für}\ x < 0,\ y \geq 0\\ \arctan\frac{y}{x} - \pi & \mathrm{für}\ x < 0,\ y < 0\\ +\pi/2 & \mathrm{für}\ x = 0,\ y > 0\\ -\pi/2 & \mathrm{für}\ x = 0,\ y < 0\\ 0 & \mathrm{für}\ x = 0,\ y = 0 \end{cases}
-    \end{multline}
+\begin{minipage}{0.49\textwidth}
+   \begin{align}
+    A &= \sqrt[]{{\Re(z)}^2 + {\Im(z)}^2}\\
+    \phi &= \operatorname{atan2}(\Im(z), \Re(z))\\
+    \operatorname{atan2}(y,x) &:= \begin{cases} \arctan\frac{y}{x} & \mathrm{für}\ x > 0\\ \arctan\frac{y}{x} + \pi & \mathrm{für}\ x < 0,\ y \geq 0\\ \arctan\frac{y}{x} - \pi & \mathrm{für}\ x < 0,\ y < 0\\ +\pi/2 & \mathrm{für}\ x = 0,\ y > 0\\ -\pi/2 & \mathrm{für}\ x = 0,\ y < 0\\ 0 & \mathrm{für}\ x = 0,\ y = 0 \end{cases}
+    \end{align}
 \end{minipage}
-\begin{minipage}{0.39\textwidth}
+\begin{minipage}{0.49\textwidth}
     \begin{figure}[H]
         \centering
-        \scalebox{.6}{\input{img/polarconvert.tex}}
+        \hspace*{-2cm}\input{img/polarconvert.tex}
         \caption{Transformation vom kartesischen zu polaren Koordinatensystem\label{fig:polarconvert}.}
     \end{figure}
 \vspace{10pt}

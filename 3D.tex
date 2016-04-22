@@ -15,7 +15,7 @@ Um die Richtungsbestimmung dann auf drei Dimensionen zu erweitern, müssen zuers
 \end{equation}
 Mit den angepassten Ortsvektoren erhält man eine neue Formel für die Abstandsberechnung zwischen einem Mikrofon und der Schallquelle:
 \begin{equation}
-    \abs{\vec{m}_i - \vec{s}} = \sqrt{{(m_{ix} - s_x)}^2 + {(m_{iy} - s_y)}^2 + {(m_{i_z} - s_z)}^2}
+    \abs{\vec{m}_i - \vec{s}} = \sqrt{{(m_{ix} - s_x)}^2 + {(m_{iy} - s_y)}^2 + {(m_{iz} - s_z)}^2}
 \end{equation}
 Man erhält eine weitere Unbekannte, $m_{iz}$. Dadurch wird für die dreidimensionale Ortung ein viertes Mikrofon benötigt. Mit dem vierten Mikrofon erhält man eine dritte Gleichung, die den Gangunterschied zwischen dem ersten und dem vierten Mikrofon enthält, dadurch wird das Gleichungssystem wieder eindeutig lösbar:
 \begin{gather*}
@@ -25,9 +25,9 @@ Man erhält eine weitere Unbekannte, $m_{iz}$. Dadurch wird für die dreidimensi
         \abs{\vec{m}_1 - \vec{s}} - \abs{\vec{m}_4 - \vec{s}} = \Delta{x_{14}}
     \end{vmatrix}\\
     \begin{vmatrix}
-        \sqrt{{(m_{1x} - s_x)}^2 + {(m_{1y} - s_y)}^2 + {(m_{1z} - s_z)}^2} - \sqrt{{(m_{2x} - s_x)}^2 + {(m_{2y} - s_y)}^2 + {(m_{2_z} - s_z)}^2} = \Delta{x_{12}} \\
-        \sqrt{{(m_{1x} - s_x)}^2 + {(m_{1y} - s_y)}^2 + {(m_{1z} - s_z)}^2} - \sqrt{{(m_{3x} - s_x)}^2 + {(m_{3y} - s_y)}^2 + {(m_{3_z} - s_z)}^2} = \Delta{x_{13}} \\
-        \sqrt{{(m_{1x} - s_x)}^2 + {(m_{1y} - s_y)}^2 + {(m_{1z} - s_z)}^2} - \sqrt{{(m_{4x} - s_x)}^2 + {(m_{4_y} - s_y)}^2 + {(m_{4_z} - s_z)}^2} = \Delta{x_{14}}
+        \sqrt{{(m_{1x} - s_x)}^2 + {(m_{1y} - s_y)}^2 + {(m_{1z} - s_z)}^2} - \sqrt{{(m_{2x} - s_x)}^2 + {(m_{2y} - s_y)}^2 + {(m_{2z} - s_z)}^2} = \Delta{x_{12}} \\
+        \sqrt{{(m_{1x} - s_x)}^2 + {(m_{1y} - s_y)}^2 + {(m_{1z} - s_z)}^2} - \sqrt{{(m_{3x} - s_x)}^2 + {(m_{3y} - s_y)}^2 + {(m_{3z} - s_z)}^2} = \Delta{x_{13}} \\
+        \sqrt{{(m_{1x} - s_x)}^2 + {(m_{1y} - s_y)}^2 + {(m_{1z} - s_z)}^2} - \sqrt{{(m_{4x} - s_x)}^2 + {(m_{4y} - s_y)}^2 + {(m_{4z} - s_z)}^2} = \Delta{x_{14}}
     \end{vmatrix}
 \end{gather*}
 \subsection{Numerische Lösung des Gleichungssystems}
@@ -35,11 +35,11 @@ Schon für zwei Dimensionen ist die analytische Lösung des Gleichungssystems se
 Für jeden weiteren Iterationsschritt $i$ erhält man ein $\vec{\Delta{s}}_i$, mit dem man die neuen Positionen für den nächsten Iterationsschritt mit $\vec{s}_{i + 1} = \vec{s}_i + \vec{\Delta{s}}_i$ erhält.
 Um das Gleichungssystem mit dem Newtonverfahren zu lösen, wird es mit der Taylorentwicklung bis zur ersten Ordnung linearisiert:
 \begin{gather*}
-    r_{i_{ca}} = \sqrt{(m_{ix} - s_{ix})^2 + (m_{iy} - s_{iy})^2 + (m_{i_z} - s_{i_z})^2}\\
+    r_{i_{ca}} = \sqrt{(m_{ix} - s_{ix})^2 + (m_{iy} - s_{iy})^2 + (m_{iz} - s_{iz})^2}\\
     \begin{vmatrix}
-        \Delta{x_{12}} - r_{2_{ca}} + r_{1_{ca}} = \left(\frac{s_{ix} - m_{2x}}{r_{2_{ca}}} - \frac{s_{ix} - m_{1x}}{r_{1_{ca}}} \right) \Delta{s}_{ix} + \left(\frac{s_{iy} - m_{2y}}{r_{2_{ca}}} - \frac{s_{iy} - m_{1y}}{r_{1_{ca}}} \right)  \Delta{s}_{iy} + \left(\frac{s_{i_z} - m_{2_z}}{r_{2_{ca}}} - \frac{s_{iz} - m_{1z}}{r_{1_{ca}}} \right)  \Delta{s}_{i_z} \\
-        \Delta{x_{13}} - r_{3_{ca}} + r_{1_{ca}} = \left(\frac{s_{ix} - m_{3x}}{r_{3_{ca}}} - \frac{s_{ix} - m_{1x}}{r_{1_{ca}}} \right) \Delta{s}_{ix} + \left(\frac{s_{iy} - m_{3y}}{r_{3_{ca}}} - \frac{s_{iy} - m_{1y}}{r_{1_{ca}}} \right)  \Delta{s}_{iy} + \left(\frac{s_{i_z} - m_{3_z}}{r_{3_{ca}}} - \frac{s_{iz} - m_{1z}}{r_{1_{ca}}} \right)  \Delta{s}_{i_z} \\
-        \Delta{x_{14}} - r_{4_{ca}} + r_{1_{ca}} = \left(\frac{s_{ix} - m_{4x}}{r_{4_{ca}}} - \frac{s_{ix} - m_{1x}}{r_{1_{ca}}} \right) \Delta{s}_{ix} + \left(\frac{s_{iy} - m_{4y}}{r_{4_{ca}}} - \frac{s_{iy} - m_{1y}}{r_{1_{ca}}} \right)  \Delta{s}_{iy} + \left(\frac{s_{i_z} - m_{4_z}}{r_{4_{ca}}} - \frac{s_{iz} - m_{1z}}{r_{1_{ca}}} \right)  \Delta{s}_{i_z} \\
+        \Delta{x_{12}} - r_{2_{ca}} + r_{1_{ca}} = \left(\frac{s_{ix} - m_{2x}}{r_{2_{ca}}} - \frac{s_{ix} - m_{1x}}{r_{1_{ca}}} \right) \Delta{s}_{ix} + \left(\frac{s_{iy} - m_{2y}}{r_{2_{ca}}} - \frac{s_{iy} - m_{1y}}{r_{1_{ca}}} \right)  \Delta{s}_{iy} + \left(\frac{s_{iz} - m_{2z}}{r_{2_{ca}}} - \frac{s_{iz} - m_{1z}}{r_{1_{ca}}} \right)  \Delta{s}_{iz} \\
+        \Delta{x_{13}} - r_{3_{ca}} + r_{1_{ca}} = \left(\frac{s_{ix} - m_{3x}}{r_{3_{ca}}} - \frac{s_{ix} - m_{1x}}{r_{1_{ca}}} \right) \Delta{s}_{ix} + \left(\frac{s_{iy} - m_{3y}}{r_{3_{ca}}} - \frac{s_{iy} - m_{1y}}{r_{1_{ca}}} \right)  \Delta{s}_{iy} + \left(\frac{s_{iz} - m_{3z}}{r_{3_{ca}}} - \frac{s_{iz} - m_{1z}}{r_{1_{ca}}} \right)  \Delta{s}_{iz} \\
+        \Delta{x_{14}} - r_{4_{ca}} + r_{1_{ca}} = \left(\frac{s_{ix} - m_{4x}}{r_{4_{ca}}} - \frac{s_{ix} - m_{1x}}{r_{1_{ca}}} \right) \Delta{s}_{ix} + \left(\frac{s_{iy} - m_{4y}}{r_{4_{ca}}} - \frac{s_{iy} - m_{1y}}{r_{1_{ca}}} \right)  \Delta{s}_{iy} + \left(\frac{s_{iz} - m_{4z}}{r_{4_{ca}}} - \frac{s_{iz} - m_{1z}}{r_{1_{ca}}} \right)  \Delta{s}_{iz} \\
     \end{vmatrix}\\
     \begin{pmatrix}
         {\Delta{s}}_{ix} \\
@@ -48,9 +48,9 @@ Um das Gleichungssystem mit dem Newtonverfahren zu lösen, wird es mit der Taylo
     \end{pmatrix}
     =
     {\begin{pmatrix}
-          \frac{s_{ix} - m_{2x}}{r_{2_{ca}}} - \frac{s_{ix} - m_{1x}}{r_{1_{ca}}} & \frac{s_{iy} - m_{2y}}{r_{2_{ca}}} - \frac{s_{iy} - m_{1y}}{r_{1_{ca}}} & \frac{s_{i_z} - m_{1_z}}{r_{2_{ca}}} - \frac{s_{iz} - m_{1z}}{r_{1_{ca}}} \\
-          \frac{s_{ix} - m_{3x}}{r_{3_{ca}}} - \frac{s_{ix} - m_{1x}}{r_{1_{ca}}} & \frac{s_{iy} - m_{3y}}{r_{3_{ca}}} - \frac{s_{iy} - m_{1y}}{r_{1_{ca}}} & \frac{s_{i_z} - m_{1_z}}{r_{3_{ca}}} - \frac{s_{iz} - m_{1z}}{r_{1_{ca}}} \\
-          \frac{s_{ix} - m_{4x}}{r_{4_{ca}}} - \frac{s_{ix} - m_{1x}}{r_{1_{ca}}} & \frac{s_{iy} - m_{4y}}{r_{4_{ca}}} - \frac{s_{iy} - m_{1y}}{r_{1_{ca}}} & \frac{s_{i_z} - m_{1_z}}{r_{4_{ca}}} - \frac{s_{iz} - m_{1z}}{r_{1_{ca}}} \\
+          \frac{s_{ix} - m_{2x}}{r_{2_{ca}}} - \frac{s_{ix} - m_{1x}}{r_{1_{ca}}} & \frac{s_{iy} - m_{2y}}{r_{2_{ca}}} - \frac{s_{iy} - m_{1y}}{r_{1_{ca}}} & \frac{s_{iz} - m_{1z}}{r_{2_{ca}}} - \frac{s_{iz} - m_{1z}}{r_{1_{ca}}} \\
+          \frac{s_{ix} - m_{3x}}{r_{3_{ca}}} - \frac{s_{ix} - m_{1x}}{r_{1_{ca}}} & \frac{s_{iy} - m_{3y}}{r_{3_{ca}}} - \frac{s_{iy} - m_{1y}}{r_{1_{ca}}} & \frac{s_{iz} - m_{1z}}{r_{3_{ca}}} - \frac{s_{iz} - m_{1z}}{r_{1_{ca}}} \\
+          \frac{s_{ix} - m_{4x}}{r_{4_{ca}}} - \frac{s_{ix} - m_{1x}}{r_{1_{ca}}} & \frac{s_{iy} - m_{4y}}{r_{4_{ca}}} - \frac{s_{iy} - m_{1y}}{r_{1_{ca}}} & \frac{s_{iz} - m_{1z}}{r_{4_{ca}}} - \frac{s_{iz} - m_{1z}}{r_{1_{ca}}} \\
       \end{pmatrix}}^{-1}
     \cdot
     \begin{pmatrix}
@@ -69,10 +69,10 @@ Das Gleichungssystem für vier Mikrofone lässt sich allgemein für $n$ Mikrofon
     \mathbf{A}_i\vec{\Delta{s}}_i = \vec{b}\\
     \mathbf{A}_i =
     {\begin{pmatrix}
-          \frac{s_{ix} - m_{2x}}{r_{2_{ca}}} - \frac{s_{ix} - m_{1x}}{r_{1_{ca}}} & \frac{s_{iy} - m_{2y}}{r_{2_{ca}}} - \frac{s_{iy} - m_{1y}}{r_{1_{ca}}} & \frac{s_{i_z} - m_{2_z}}{r_{2_{ca}}} - \frac{s_{iz} - m_{1z}}{r_{1_{ca}}} \\
-          \frac{s_{ix} - m_{3x}}{r_{3_{ca}}} - \frac{s_{ix} - m_{1x}}{r_{1_{ca}}} & \frac{s_{iy} - m_{3y}}{r_{3_{ca}}} - \frac{s_{iy} - m_{1y}}{r_{1_{ca}}} & \frac{s_{i_z} - m_{3_z}}{r_{3_{ca}}} - \frac{s_{iz} - m_{1z}}{r_{1_{ca}}} \\
+          \frac{s_{ix} - m_{2x}}{r_{2_{ca}}} - \frac{s_{ix} - m_{1x}}{r_{1_{ca}}} & \frac{s_{iy} - m_{2y}}{r_{2_{ca}}} - \frac{s_{iy} - m_{1y}}{r_{1_{ca}}} & \frac{s_{iz} - m_{2z}}{r_{2_{ca}}} - \frac{s_{iz} - m_{1z}}{r_{1_{ca}}} \\
+          \frac{s_{ix} - m_{3x}}{r_{3_{ca}}} - \frac{s_{ix} - m_{1x}}{r_{1_{ca}}} & \frac{s_{iy} - m_{3y}}{r_{3_{ca}}} - \frac{s_{iy} - m_{1y}}{r_{1_{ca}}} & \frac{s_{iz} - m_{3z}}{r_{3_{ca}}} - \frac{s_{iz} - m_{1z}}{r_{1_{ca}}} \\
           \vdots & \vdots & \vdots \\
-          \frac{s_{ix} - m_{nx}}{r_{n_{ca}}} - \frac{s_{ix} - m_{1x}}{r_{1_{ca}}} & \frac{s_{iy} - m_{ny}}{r_{n_{ca}}} - \frac{s_{iy} - m_{1y}}{r_{1_{ca}}} & \frac{s_{i_z} - m_{4_z}}{r_{n_{ca}}} - \frac{s_{iz} - m_{1z}}{r_{1_{ca}}} \\
+          \frac{s_{ix} - m_{nx}}{r_{n_{ca}}} - \frac{s_{ix} - m_{1x}}{r_{1_{ca}}} & \frac{s_{iy} - m_{ny}}{r_{n_{ca}}} - \frac{s_{iy} - m_{1y}}{r_{1_{ca}}} & \frac{s_{iz} - m_{4z}}{r_{n_{ca}}} - \frac{s_{iz} - m_{1z}}{r_{1_{ca}}} \\
       \end{pmatrix}},
     ~
     \vec{\Delta{s}_i} =
