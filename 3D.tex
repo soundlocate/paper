@@ -19,21 +19,41 @@ $$\left|\begin{array}{c}
 \abs{\vec{m}_1 - \vec{s}} - \abs{\vec{m}_4 - \vec{s}} = \Delta{x_{14}}
 \end{array}\right|$$
 $$\left|\begin{array}{c}
-\sqrt{{(m_{1x} - s_x)}^2 + {(m_{1y} - s_y)}^2} - \sqrt{{(m_{2x} - s_x)}^2 + {(m_{2y} - s_y)}^2 + {(m_{2_z} - s_z)}^2} = \Delta{x_{12}} \\
-\sqrt{{(m_{1x} - s_x)}^2 + {(m_{1y} - s_y)}^2} - \sqrt{{(m_{3x} - s_x)}^2 + {(m_{3y} - s_y)}^2 + {(m_{3_z} - s_z)}^2} = \Delta{x_{13}} \\
-\sqrt{{(m_{1x} - s_x)}^2 + {(m_{1y} - s_y)}^2} - \sqrt{{(m_{4x} - s_x)}^2 + {(m_{4_y} - s_y)}^2 + {(m_{4_z} - s_z)}^2} = \Delta{x_{14}}
+\sqrt{{(m_{1x} - s_x)}^2 + {(m_{1y} - s_y)}^2 + {(m_{1z} - s_z)}^2} - \sqrt{{(m_{2x} - s_x)}^2 + {(m_{2y} - s_y)}^2 + {(m_{2_z} - s_z)}^2} = \Delta{x_{12}} \\
+\sqrt{{(m_{1x} - s_x)}^2 + {(m_{1y} - s_y)}^2 + {(m_{1z} - s_z)}^2} - \sqrt{{(m_{3x} - s_x)}^2 + {(m_{3y} - s_y)}^2 + {(m_{3_z} - s_z)}^2} = \Delta{x_{13}} \\
+\sqrt{{(m_{1x} - s_x)}^2 + {(m_{1y} - s_y)}^2 + {(m_{1z} - s_z)}^2} - \sqrt{{(m_{4x} - s_x)}^2 + {(m_{4_y} - s_y)}^2 + {(m_{4_z} - s_z)}^2} = \Delta{x_{14}}
 \end{array}\right|$$
 \subsection{Numerische Lösung des Gleichungssystems mit Singulärwertzerlegung und Gauss-Markow Algorithmus}
-Schon für zwei Dimensionen ist die analytische Lösung des Gleichungssystem sehr kompliziert. Für drei Dimensionen ist die Formel der Lösung in Textform über 300Mb groß. Dadurch können wir sie nur durch Einschränkung der Mikrofon-Positionen verwenden. Um diese Einschränkung zu umgehen, lösen wir das Gleichungssystem numerisch. Dazu verwenden wir das mehrdimensionale Newtonverfahren. Hierbei gehen wir von einer Startposition $\vec{s}_0$ aus, die iterativ verbessert wird. Als Startposition haben wir das Zentrum der Mikrofone gewählt. Für den Iteratiosvektoren erhält man eine neue Formel für die Abstandsberechnung zwischen einem Mikrofon und der Schallquelle:
-$$\abs{\vec{m}_i - \vec{s}} = \sqrt{{(m_{ix} - s_x)}^2 + {(m_{iy} - s_y)}^2 + {(m_{i_z} - s_z)}^2}$$
-Man erhält eine weitere nsschritt $i$ erhält man die neue Positionen mit $\vec{s}_{i + 1} = \vec{s}_i + \vec{\Delta{s}}_i$. Das Gleichungssystem für die dreidimensionale Ortung lässt sich umschreiben zu:
+Schon für zwei Dimensionen ist die analytische Lösung des Gleichungssystem sehr kompliziert. Für drei Dimensionen ist die Formel der Lösung in Textform über 300Mb groß. Dadurch können wir sie nur durch Einschränkung der Mikrofon-Positionen verwenden. Um diese Einschränkung zu umgehen, lösen wir das Gleichungssystem numerisch. Dazu verwenden wir das mehrdimensionale Newtonverfahren. Hierbei gehen wir von einer Startposition $\vec{s}_0$ aus, die iterativ verbessert wird. Als Startposition haben wir das Zentrum der Mikrofone gewählt.
+Für jeden weiteren Iterationsschritt $i$ erhält man ein $\vec{\Delta{s}}_i$, mit dem man die neue Positionen für den nächsten Iterationsschritt mit $\vec{s}_{i + 1} = \vec{s}_i + \vec{\Delta{s}}_i$ erhält.
+Um das Gleichungssystem mit dem Newtonverfahren zu lösen wird es mit der Taylorentwicklung bis zur ersten Ordung linearisiert:
+$$r_{i_{ca}} = \sqrt{(m_{ix} - s_{ix})^2 + (m_{iy} - s_{iy})^2 + (m_{i_z} - s_{i_z})^2}$$
 $$\left|\begin{array}{c}
-\sqrt{(m_{1x} - s_x)^2 + (m_{1y} - s_y)^2 + (m_{1_z} - s_z)^2} - d = 0 \\
-\sqrt{(m_{2x} - s_x)^2 + (m_{2y} - s_y)^2 + (m_{2_z} - s_z)^2} - d = \Delta{x_{12}} \\
-\sqrt{(m_{3x} - s_x)^2 + (m_{3y} - s_y)^2 + (m_{3_z} - s_z)^2} - d = \Delta{x_{13}} \\
-\sqrt{(m_{4x} - s_x)^2 + (m_{4y} - s_y)^2 + (m_{4_z} - s_z)^2} - d = \Delta{x_{14}} \\
+\Delta{x_{12}} - r_{2_{ca}} + r_{1_{ca}} = \left(\frac{s_{ix} - m_{2x}}{r_{2_{ca}}} - \frac{s_{ix} - m_{1x}}{r_{1_{ca}}} \right) \cdot {\Delta{s}}_{ix} + \left(\frac{s_{iy} - m_{2y}}{r_{2_{ca}}} - \frac{s_{iy} - m_{1y}}{r_{1_{ca}}} \right) \cdot {\Delta{s}}_{iy} + \left(\frac{s_{i_z} - m_{2_z}}{r_{2_{ca}}} - \frac{s_{iz} - m_{1z}}{r_{1_{ca}}} \right) \cdot {\Delta{s}}_{i_z} \\
+\Delta{x_{13}} - r_{3_{ca}} + r_{1_{ca}} = \left(\frac{s_{ix} - m_{3x}}{r_{3_{ca}}} - \frac{s_{ix} - m_{1x}}{r_{1_{ca}}} \right) \cdot {\Delta{s}}_{ix} + \left(\frac{s_{iy} - m_{3y}}{r_{3_{ca}}} - \frac{s_{iy} - m_{1y}}{r_{1_{ca}}} \right) \cdot {\Delta{s}}_{iy} + \left(\frac{s_{i_z} - m_{3_z}}{r_{3_{ca}}} - \frac{s_{iz} - m_{1z}}{r_{1_{ca}}} \right) \cdot {\Delta{s}}_{i_z} \\
+\Delta{x_{14}} - r_{4_{ca}} + r_{1_{ca}} = \left(\frac{s_{ix} - m_{4x}}{r_{4_{ca}}} - \frac{s_{ix} - m_{1x}}{r_{1_{ca}}} \right) \cdot {\Delta{s}}_{ix} + \left(\frac{s_{iy} - m_{4y}}{r_{4_{ca}}} - \frac{s_{iy} - m_{1y}}{r_{1_{ca}}} \right) \cdot {\Delta{s}}_{iy} + \left(\frac{s_{i_z} - m_{4_z}}{r_{4_{ca}}} - \frac{s_{iz} - m_{1z}}{r_{1_{ca}}} \right) \cdot {\Delta{s}}_{i_z} \\
 \end{array}\right|$$
-Um dieses Gleichungssystem mit dem Newtonverfahren zu lösen wird es mit der Taylorentwicklung bis zur ersten Ordung linearisiert:
+$$
+\begin{pmatrix}
+{\Delta{s}}_{ix} \\
+{\Delta{s}}_{iy} \\
+{\Delta{s}}_{iz} \\
+\end{pmatrix}
+=
+{\begin{pmatrix}
+\frac{s_{ix} - m_{2x}}{r_{2_{ca}}} - \frac{s_{ix} - m_{1x}}{r_{1_{ca}}} & \frac{s_{iy} - m_{2y}}{r_{2_{ca}}} - \frac{s_{iy} - m_{1y}}{r_{1_{ca}}} & \frac{s_{i_z} - m_{1_z}}{r_{2_{ca}}} - \frac{s_{iz} - m_{1z}}{r_{1_{ca}}} \\
+\frac{s_{ix} - m_{3x}}{r_{3_{ca}}} - \frac{s_{ix} - m_{1x}}{r_{1_{ca}}} & \frac{s_{iy} - m_{3y}}{r_{3_{ca}}} - \frac{s_{iy} - m_{1y}}{r_{1_{ca}}} & \frac{s_{i_z} - m_{1_z}}{r_{3_{ca}}} - \frac{s_{iz} - m_{1z}}{r_{1_{ca}}} \\
+\frac{s_{ix} - m_{4x}}{r_{4_{ca}}} - \frac{s_{ix} - m_{1x}}{r_{1_{ca}}} & \frac{s_{iy} - m_{4y}}{r_{4_{ca}}} - \frac{s_{iy} - m_{1y}}{r_{1_{ca}}} & \frac{s_{i_z} - m_{1_z}}{r_{4_{ca}}} - \frac{s_{iz} - m_{1z}}{r_{1_{ca}}} \\
+\end{pmatrix}}^{-1}
+\cdot
+\begin{pmatrix}
+\Delta{x_{12}} - r_{2_{ca}} + r_{1_{ca}}\\
+\Delta{x_{13}} - r_{3_{ca}} + r_{1_{ca}}\\
+\Delta{x_{14}} - r_{4_{ca}} + r_{1_{ca}}
+\end{pmatrix}
+$$
+
+\iffalse
 $$\left|\begin{array}{c}
 -r_{1_{ca}} = \frac{s_{ix} - m_{1x}}{r_{1_{ca}}} \cdot \vec{\Delta{s}}_{ix} + \frac{s_{iy} - m_{1y}}{r_{1_{ca}}} \cdot \vec{\Delta{s}}_{iy} + \frac{s_{i_z} - m_{1_z}}{r_{1_{ca}}} \cdot \vec{\Delta{s}}_{i_z} - d \\
 \Delta{x_{12}} - r_{2_{ca}} = \frac{s_{ix} - m_{2x}}{r_{2_{ca}}} \cdot \vec{\Delta{s}}_{ix} + \frac{s_{iy} - m_{2y}}{r_{2_{ca}}} \cdot \vec{\Delta{s}}_{iy} + \frac{s_{i_z} - m_{2_z}}{r_{2_{ca}}} \cdot \vec{\Delta{s}}_{i_z} - d \\
@@ -65,7 +85,44 @@ $$
 \Delta{x_{14}} - r_{4_{ca}}
 \end{pmatrix}
 $$
+\fi
 Für die Berechnung der Inverse der Matrix gibt es viele verschiedene Methoden, wir benutzen die Singulärwertszerlegung. Die numerische Lösung des Gleichungssystems benötigt eine initiale Position, für die die Mitte der Mikrofone verwendet wird. Wenn allerdings bereits eine alte Position für die vorliegende Frequenz bekannt ist, wird diese alte Position als Startwert der Iteration verwendet, da dadurch, wenn sich die Position der Schallquelle nicht zu sehr geändert hat, die Iteration schneller konvergiert. Als Konvergenzkriterium verwenden wir $\abs{\vec{\Delta{s}}_i} < 0.0001\mathrm{m}$. Da das Newtonverfahren keine garantierte Konvergenz hat, wird die Iteration nach $50$ Iterationsschitten abgebrochen.
-Ein Vorteil der numerischen Lösung ist, dass sie leicht auf beliebig viele Mikrofone erweitert werden kann. Das Gleichungssystem wird überbestimmt, wenn man mehr als vier Mikrofone verwendet, aber indem man die Methode der kleinsten Quadrate auf die Berechnung von $\vec{\Delta{s}}_i$ anwendet, erhält man den Ort, an dem die Summe der Fehlerquadrate für alle Mikrofone am geringsten ist, es also am wahrscheinlichsten ist, dass sich die Schallquelle wirklich dort befindet. Die Least Squares Lösung entspricht für unser Problem, nach dem Gauss-Markow-Theorem einem minimalvarianten linearen erwatungstreuen Schätzer. Außerdem kann man mit mehr Mikrofonen die Richtungsbestimmung auch unabhängig von der Schallgeschwindigkeit machen, denn diese kann als eine weitere Variable eingeführt werden.
+
+\subsection{Least Squares Lösung}
+Ein Vorteil der numerischen Lösung ist, dass sie leicht auf beliebig viele Mikrofone erweitert werden kann. Das Gleichungssystem wird überbestimmt, wenn man mehr als vier Mikrofone verwendet, aber indem man die Methode der kleinsten Quadrate auf die Berechnung von $\vec{\Delta{s}}_i$ anwendet, erhält man den Ort, an dem die Summe der Fehlerquadrate für alle Mikrofone am geringsten ist, es also am wahrscheinlichsten ist, dass sich die Schallquelle wirklich dort befindet.
+Das Gleichungssystem für vier Mikrofone lässt sich allgemein für $n$ Mikrofone als
+$$
+\textbf{A}_i\vec{\Delta{s}}_i = \vec{b}
+$$
+$$
+\textbf{A}_i =
+{\begin{pmatrix}
+\frac{s_{ix} - m_{2x}}{r_{2_{ca}}} - \frac{s_{ix} - m_{1x}}{r_{1_{ca}}} & \frac{s_{iy} - m_{2y}}{r_{2_{ca}}} - \frac{s_{iy} - m_{1y}}{r_{1_{ca}}} & \frac{s_{i_z} - m_{2_z}}{r_{2_{ca}}} - \frac{s_{iz} - m_{1z}}{r_{1_{ca}}} \\
+\frac{s_{ix} - m_{3x}}{r_{3_{ca}}} - \frac{s_{ix} - m_{1x}}{r_{1_{ca}}} & \frac{s_{iy} - m_{3y}}{r_{3_{ca}}} - \frac{s_{iy} - m_{1y}}{r_{1_{ca}}} & \frac{s_{i_z} - m_{3_z}}{r_{3_{ca}}} - \frac{s_{iz} - m_{1z}}{r_{1_{ca}}} \\
+\vdots & \vdots & \vdots \\
+\frac{s_{ix} - m_{nx}}{r_{n_{ca}}} - \frac{s_{ix} - m_{1x}}{r_{1_{ca}}} & \frac{s_{iy} - m_{ny}}{r_{n_{ca}}} - \frac{s_{iy} - m_{1y}}{r_{1_{ca}}} & \frac{s_{i_z} - m_{4_z}}{r_{n_{ca}}} - \frac{s_{iz} - m_{1z}}{r_{1_{ca}}} \\
+\end{pmatrix}},
+~
+\vec{\Delta{s}_i} =
+\begin{pmatrix}
+{\Delta{s}}_{ix} \\
+{\Delta{s}}_{iy} \\
+{\Delta{s}}_{iz} \\
+\end{pmatrix},
+~
+\vec{b} =
+\begin{pmatrix}
+\Delta{x_{12}} - r_{2_{ca}} + r_{1_{ca}}\\
+\Delta{x_{13}} - r_{3_{ca}} + r_{1_{ca}}\\
+\vdots \\
+\Delta{x_{1n}} - r_{n_{ca}} + r_{1_{ca}}
+\end{pmatrix}
+$$
+schreiben.
+Damit erhält man das Least Squares Problem:
+$$
+\min_{\vec{\Delta{s}_i}}{\norm{A_i\vec{\Delta{s}_i} - b}^2}
+$$
+Der Least Squares Lösung entspricht für unser Problem, nach dem Gauss-Markow-Theorem einem minimalvarianten linearen erwatungstreuen Schätzer. Damit kann man es durch die Householdertransformation\cite{householder2006principles} lösen. Durch die Verwendung von mehr als vier Mikrofonen wird die Richtungbestimmung dann nochmals genauer.
 \subsection{Zusammenfassen von ähnlichen Richtungen}
 Signale in der Echtwelt bestehen aus vielen verschiedenen Frequenzen, dadurch erhält man anstatt einer Richtung für eine Schallquelle, wie eine sprechender Mensch, nicht nur eine Richtung, sondern viele ähnliche Richtungen. Um die ermittelten Richtungen eindeutiger zu machen fassen wir deswegen diese ähnliche Richtungen zusammen. Dazu verwenden wir ein agglomeratives Clusterverfahren mit der Summe der minimalen Winkel zwischen zwei Richtungen als Unähnlichkeit. Von jeder Frequenz werden die letzten zehn Richtungen gespeichert und diese fließen mit in die Clusterbildung mit ein. Um geringe Änderungen in der Richtung auszugleichen wird außerdem ein laufendes Mittel der Richtung für jede Frequenz über drei Richtungen gebildet. Die Richtung eines Clusters wird über ein nach dem Amplituden gewichtetes Mittel aus allen zu dem Cluster gehörenden Richtungen berechnet.
