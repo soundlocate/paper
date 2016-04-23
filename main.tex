@@ -22,6 +22,9 @@
 \usepackage{booktabs}
 %\usepackage[german]{translator}
 \pagestyle{headings}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
 \selectlanguage{german}%
 % Space savings:
 \usepackage[top=5cm, left=2.5cm, right=2.5cm, bottom=3cm]{geometry}
@@ -85,22 +88,21 @@
 
 \begingroup
 \let\clearpage\relax
-\include{problematik}
-\include{existing}
-\include{konzept}
-\include{implementation}
-\include{1D}
-\include{2D}
-\include{3D}
-\include{eval}
+\input{problematik}
+\input{existing}
+\input{konzept}
+\input{implementation}
+\input{1D}
+\input{2D}
+\input{3D}
+\input{eval}
 
-\addcontentsline{toc}{section}{\protect\numberline{9} Ausblick}
+%\addcontentsline{toc}{subsection}{\protect\numberline{8.2} Realwelt}
+%\addcontentsline{toc}{subsection}{\protect\numberline{8.3} Alltagstest}
 
-\include{ausblick}
+\input{ausblick}
 
-\addcontentsline{toc}{section}{\protect\numberline{10} Fazit}
-
-\include{fazit}
+\input{fazit}
 \endgroup
 
 \pagebreak % Quellen und co
