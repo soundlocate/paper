@@ -35,11 +35,6 @@ Um das durch die Simulation evaluierbare Verfahren praktisch zu testen und zu nu
     \end{subfigure}
     \caption{Unsere verschiedenen Prototypen\label{tet}}
 \end{figure}
-\begin{wrapfigure}{R}{0.5\textwidth}
-    \centering
-    \includegraphics[width=0.5\textwidth]{img/chara_mess}
-    \caption{Unsere Apparatur zur Messung der Charakteristik eines Mikrofons.}
-\end{wrapfigure}
 \paragraph{Anforderungen}
 Die erste Komponente, die bei einem realen Aufbau der Messapparatur eine wichtige Rolle spielt, ist die der Schallwandlung. Dies wird durch Mikrofone realisiert. An diese gibt es einige Anforderungen. Die wichtigste Anforderung ist, dass sie eine möglichst kugelförmige Charakteristik haben.
 Außerdem erzeugen kleine Mikrofone weniger Schallschatten und Reflexionen. Des Weiteren sollte das Signal-Rausch-Verhältnis möglichst groß sein, da Rauschen die Messungen unpräziser macht~\cite{Rausch}.
@@ -49,6 +44,11 @@ Wir haben drei Prototypen unseres Mikrofonarrays konstruiert und diese dabei opt
 Die Charakteristik der Mikrofone sollte möglichst gleichmäßig sein, da nur so aus allen Richtungen Töne mit gleicher Qualität aufgenommen werden können. Wenn zum Beispiel alle Mikrofone eine Nierencharakteristik aufweisen und sie in einem gleichseitigen Dreieck angeordnet sind, liefert mindestens ein Mikrofon ein deutlich schwächeres Signal als die anderen, was dazu führt, dass die Phasenlagen der einzelnen Wellen ungenauer bestimmt werden, und hierdurch auch die Richtungsbestimmung ungenauer wird.
 
 \paragraph{Vermessen von Mikorfoncharakteristika}
+\begin{wrapfigure}{R}{0.5\textwidth}
+	\centering
+	\includegraphics[width=0.5\textwidth]{img/chara_mess}
+	\caption{Unsere Apparatur zur Messung der Charakteristik eines Mikrofons.}
+\end{wrapfigure}
 Um unter diesem Aspekt geeignete Elektretmikrofonkapseln zu finden, haben wir die Charakteristiken verschiedener Mikrofone mittels einer selbst entwickelten Messapparatur und einer selbst entwickelten Messsoftware überprüft. Unsere hierfür entwickelte Messapparatur sendet mittels eines Lautsprechers eine Sinus-Schwingung aus und misst, wie stark diese vom Mikrofon aufgenommen wurde. Danach dreht sie das Mikrofon um einen festgelegten Winkel weiter und führt erneut eine Messung durch. Dieser Vorgang wird solange wiederholt, bis das Mikrofon einmal um \ang{360} gedreht wurde.
 Die so ermittelten Daten können nun mittels des freien Plottingprogramms \textit{gnuplot}~\cite{Gnuplot} visualisiert werden, um die Richtcharakteristik darzustellen.
 \begin{figure}[H]
@@ -101,7 +101,6 @@ Das in Frequenz, Phase und Amplitude konvertierte Ergebnis der Fourier-Transform
 \subsection{Richtungsmodul (Modul 3)}
 Die von der Fourier-Transformation bestimmten Tripel aus Frequenz, Phase und Amplitude werden vom Richtungsmodul weiterverarbeitet. In das Richtungsmodul können verschiedene Methoden der Richtungsbestimmung eingesetzt werden. Die ermittelten Richtungen werden an das Ausgabemodul weitergesendet.
 Das Richtungsmodul haben wir in C++ geschrieben und dabei \textit{LAPACK}~\cite{Anderson:1990:LPL:110382.110385} verwendet.
-\pagebreak
 \subsection{Ausgabemodul (Modul 4)}
 \begin{wrapfigure}{r}{0.4\textwidth}
 	\centering
@@ -120,6 +119,7 @@ Um die Konfiguration der einzelnen Module zu vereinfachen und schneller an neue 
     \includegraphics[width=0.475\textwidth]{img/GUI2}
     \caption{Screenshots der Steuerungsoberfläche\label{fig:gui_screenshot}}
 \end{figure}
+\pagebreak
 \subsection{Testen der einzelnen Module}
 \begin{wrapfigure}{r}{0.5\textwidth}
     \centering

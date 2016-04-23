@@ -4,10 +4,10 @@ Um unser Verfahren zur Richtungsbestimmung zu testen und die Genauigkeit zu best
 Zunächst haben wir unser Verfahren in der Simulation getestet, da diese automatisierte Tests ermöglicht und somit leicht sehr viele verschiedene Richtungen und Frequenzen getestet werden können. Dabei haben wir die Schallquellen für verschiedene Radien auf einer Kugeloberfläche positioniert. Der Tetraeder wurde mit \SI{0.28}{\meter} Kantenlänge simuliert, dies entspricht dem ersten Prototypen. Bei der Positionsabhängigkeit haben wir außerdem auch unseren dritten Prototypen simuliert, mit \SI{0.165}{\meter} Kantenlänge, dies entspricht ebenfalls unserem tatsächlichen Prototypen. Die Schallquellen wurden mit einer \SI{500}{\hertz}-Sinusschwingung simuliert.
 \begin{figure}[H]
   \centering
-  \resizebox{0.850\textwidth}{!}{\input{img/tested_positions_zoom}}
+  \resizebox{0.7\textwidth}{!}{\input{img/tested_positions_zoom}}
   \caption{Visualisierung der getesteten Positionen\label{fig:pos}}
 \end{figure}
-Für jeden getesteten Radius haben wir Punkte auf der Kugeloberfläche in \ang{2} Auflösung, also insgesamt \num{32400} Positionen, getestet.
+Für jeden getesteten Radius haben wir Punkte auf der Kugeloberfläche in \ang{2} Auflösung, also insgesamt \num{32400} Positionen, getestet (siehe Abbildung \ref{fig:pos}).
 \begin{figure}[H]
   \centering
   \resizebox{0.750\textwidth}{!}{\input{img/pos_sweep}}
@@ -39,7 +39,8 @@ In unseren Simulationen hat sich gezeigt, dass unser Verfahren sehr genau arbeit
 Für die acht verschiedenen Richtungen hatte die Richtungsbestimmung eine Genauigkeit von \ang[separate-uncertainty = true]{3.9 +- 0.13}. Allerdings hatte der Lautsprecher bei dem von uns gewählten Abstand eine Winkelgröße von \ang{3.2}, weshalb dies ein sehr guter Wert ist. Die Richtungsbestimmung mit unserem Verfahren ist also auch in der Realwelt mit großen Abständen genauer als beim Menschen.
 
 \subsection{Alltagstest} 
-Um die Verwendbarkeit unseres Verfahrens auch außerhalb einer Schallkammer zu testen, haben wir unser System mit verschiedenen Schallquellen unter realen Bedingungen getestet.
+Um die Verwendbarkeit unseres Verfahrens auch außerhalb einer Schallkammer zu testen, haben wir unser System mit verschiedenen Schallquellen unter realen Bedingungen getestet.\\
+Auf den Abbildungen \ref{fig:tests} (a) bis (d) sieht man Screenshots der Ausgabe für reale Tests, die wir mit unserem dritten Prototyp durchgeführt haben. Der gestrichelte Würfel entspricht dem Würfel, der von den Mikrofonspitzen gebildet wird. Der blaue Punkt makiert den Nullpunkt und die Pfeile zeigen in die durch den Algorithmus bestimmte Richtung. In allen Fällen war die Schallquelle an der gleichen Stelle positioniert. Die Farbe der Pfeile entspricht der Frequenz. Man kann erkennen, dass die mit unserem Verfahren bestimmte Richtung sehr gut mit der tatsächlichen Richtung übereinstimmt, obwohl Störungen, wie Reflexionen, auftreten. Des Weiteren ist zu erkennen, dass selbst bei komplizierten Signalen mit einem breiten Frequenzspektrum, wie zum Beispiel Musik, die Ortung gut funktioniert. Dies zeigt, dass unser Verfahren auch für Realwelt gut geeignet ist und es auch hierbei nur eine sehr geringe Streuung der Richtung gibt.
 \begin{figure}[H]
   \centering
   \begin{subfigure}[b]{0.475\textwidth}
@@ -65,7 +66,5 @@ Um die Verwendbarkeit unseres Verfahrens auch außerhalb einer Schallkammer zu t
     \includegraphics[width=\textwidth]{img/sprechen.png}
     \caption{Richtungsbestimmung von Stimme\label{fig:speech}}
   \end{subfigure}
-
   \caption{Verschiedene Tests der Richtungsbestimmung in Alltagssituationen\label{fig:tests}}
 \end{figure}
-Auf den Bildern sieht man Screenshots der Ausgabe für reale Tests, die wir mit unserem dritten Prototyp durchgeführt haben. Der gestrichelte Würfel entspricht dem Würfel, der von den Mikrofonspitzen gebildet wird. Der blaue Punkt makiert den Nullpunkt und die Pfeile zeigen in die durch den Algorithmus bestimmte Richtung. In allen Fällen war die Schallquelle an der gleichen Stelle positioniert. Die Farbe der Pfeile entspricht der Frequenz. Man kann erkennen, dass die mit unserem Verfahren bestimmte Richtung sehr gut mit der tatsächlichen Richtung übereinstimmt, obwohl Störungen, wie Reflexionen, auftreten. Des Weiteren ist zu erkennen, dass selbst bei komplizierten Signalen mit einem breiten Frequenzspektrum, wie zum Beispiel Musik, die Ortung gut funktioniert. Dies zeigt, dass unser Verfahren auch für Realwelt gut geeignet ist und es auch hierbei nur eine sehr geringe Streuung der Richtung gibt.
