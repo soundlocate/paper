@@ -71,36 +71,36 @@ Auch für das Audiointerface, also die Verbindung zwischen Mikrofonen und Comput
 Um die reale Mikrofone für die Richtungsbestimmung zu verwenden, muss noch eine Verbindung zwischen dem Audiointerface und dem nächsten Modul geschaffen werden. Durch unseren modularen Aufbau lässt sich dies leicht implementieren. Wir haben dazu ein Programm in Java entwickelt, das fähig ist, mehrkanalige Audiosignale in Echtzeit aufzunehmen und über TCP/IP an die Fourier-Transformation weiterzuleiten. Zur Umsetzung haben wir die Programmbibliothek \textit{portaudio}~\cite{portaudio} verwendet. Diese Programmbibliothek hat den Vorteil, dass mehrere Audiokanäle zeitsynchronisiert eingelesen werden können. Dies ist sehr wichtig, damit unser Verfahren zur Richtungsbestimmung, welches auf der relativen Phasenlage basiert, funktioniert. \textit{Portaudio} haben wir in Java über das Java Native Interface (JNI) benutzt.
 
 \subsection{Fourier-Transformation (Modul 2)}
-Dieses Modul teilt die Audio-Signale in einzelne Sinuswellen und bestimmt deren Phase und Amplitude. Dies lässt sich mit einer diskreten Fourier-Transformation bewerkstelligen. Die diskrete Fourier-Transformation bestimmt aus einem zeitdiskreten Signal die einzelnen Sinusschwingungen mit ihrer zugehörigen Phase und Amplitude, die zusammen das Signal bilden. Ein schneller Algorithmus, um die diskrete Fourier-Transformation eines Signals zu berechnen, ist die Fast Fourier-Transformation (FFT). Dieser ist schnell genug, um eine Echtzeitverarbeitung des Signals zu ermöglichen. Als Implementation der FFT haben wir \textit{FFTW}~\cite{FFTW} verwendet, da \textit{FFTW} kostenlos, opensource und vergleichsweise schnell ist.
-Das Fourier-Transformations-Modul wurde aus Performancegründen in \textit{C++} implementiert.
+Dieses Modul teilt die Audio-Signale in einzelne Sinuswellen auf und bestimmt deren Phase und Amplitude. Dies lässt sich mit einer diskreten Fourier-Transformation bewerkstelligen. Die diskrete Fourier-Transformation bestimmt aus einem zeitdiskreten Signal die einzelnen Sinusschwingungen mit ihrer zugehörigen Phase und Amplitude, die zusammen das Signal bilden. Ein schneller Algorithmus, um die diskrete Fourier-Transformation eines Signals zu berechnen, ist die Fast Fourier-Transformation (FFT). Dieser ist schnell genug, um eine Echtzeitverarbeitung des Signals zu ermöglichen. Als Implementation der FFT haben wir \textit{FFTW}~\cite{FFTW} verwendet, da \textit{FFTW} kostenlos, opensource und vergleichsweise schnell ist.
+Das Fourier-Transformations-Modul wurde aus Performancegründen in \textit{C++} implementiert.\\
 Durch eine diskrete Fourier-Transformation von $n$ reellen Zahlen erhält man eine Liste aus $n$ komplexen Zahlen. Eine komplexe Zahl $z$ an der Stelle $j$ enthält die Amplituden- und Phaseninformation für die Frequenz~$f$:
 \begin{equation}
 f = j\frac{r}{n}
 \end{equation}
 Dabei ist $r$ die Abtastrate des Signals. Die Amplitude $A$ des Sinus lässt sich mit dem Betrag der komplexen Zahl berechnen und die Phase $\phi$ mit dem Arcus-Tangens. Dies entspricht der Koordinatentransformation von einem kartesischen in ein polares Koordinatensystem:\\
-\begin{minipage}{0.59\textwidth}
-   \begin{multline}
-    A = \sqrt[]{{\Re(z)}^2 + {\Im(z)}^2}\\
-    \phi = \operatorname{atan2}(\Im(z), \Re(z))\\
-    \operatorname{atan2}(y,x) := \begin{cases} \arctan\frac{y}{x} & \mathrm{für}\ x > 0\\ \arctan\frac{y}{x} + \pi & \mathrm{für}\ x < 0,\ y \geq 0\\ \arctan\frac{y}{x} - \pi & \mathrm{für}\ x < 0,\ y < 0\\ +\pi/2 & \mathrm{für}\ x = 0,\ y > 0\\ -\pi/2 & \mathrm{für}\ x = 0,\ y < 0\\ 0 & \mathrm{für}\ x = 0,\ y = 0 \end{cases}
-    \end{multline}
+\begin{minipage}{0.49\textwidth}
+   \begin{align}
+    A &= \sqrt[]{{\Re(z)}^2 + {\Im(z)}^2}\\
+    \phi &= \operatorname{atan2}(\Im(z), \Re(z))\\
+    \operatorname{atan2}(y,x) &:= \begin{cases} \arctan\frac{y}{x} & \mathrm{für}\ x > 0\\ \arctan\frac{y}{x} + \pi & \mathrm{für}\ x < 0,\ y \geq 0\\ \arctan\frac{y}{x} - \pi & \mathrm{für}\ x < 0,\ y < 0\\ +\pi/2 & \mathrm{für}\ x = 0,\ y > 0\\ -\pi/2 & \mathrm{für}\ x = 0,\ y < 0\\ 0 & \mathrm{für}\ x = 0,\ y = 0 \end{cases}
+    \end{align}
 \end{minipage}
-\begin{minipage}{0.39\textwidth}
+\begin{minipage}{0.49\textwidth}
     \begin{figure}[H]
         \centering
-        \scalebox{.6}{\input{img/polarconvert.tex}}
+        \hspace*{-2cm}\input{img/polarconvert.tex}
         \caption{Transformation vom kartesischen zu polaren Koordinatensystem\label{fig:polarconvert}.}
     \end{figure}
 \vspace{10pt}
 \end{minipage}
 \\
-Die Verwendung der oben definierten Funktion $\operatorname{atan2}(y,x)$ anstelle von $\arctan\frac{y}{x}$ sorgt dafür, dass der richtige Winkel berechnet wird. $\arctan\frac{y}{x}$ liefert nur Winkel von \ang{-90} bis \ang{90}, deswegen muss anhand des Vorzeichens von $x$ und $y$ bestimmt werden, in welchem Quadranten der Punkt liegt und der von $\arctan\frac{y}{x}$ gelieferte Winkel dementsprechend verschoben werden.
+Die Verwendung der oben definierten Funktion $\operatorname{atan2}(y,x)$ anstelle von $\arctan\frac{y}{x}$ sorgt dafür, dass der richtige Winkel berechnet wird. $\arctan\frac{y}{x}$ liefert nur Winkel von \ang{-90} bis \ang{90}, deswegen muss anhand des Vorzeichens von $x$ und $y$ bestimmt werden, in welchem Quadranten der Punkt liegt und der von $\arctan\frac{y}{x}$ gelieferte Winkel dementsprechend interpretiert werden.
 
-Das in Frequenz, Phase und Amplitude konvertierte Ergebnis der Fourier-Transformation wird dann gefiltert. Alle Frequenzen mit einer Amplitude, die unter einer bestimmten Grenze liegen, werden verworfen. Die verbleibenden Frequenzen werden an das Richtungsmodul übermittelt.
+Das in Frequenz, Phase und Amplitude konvertierte Ergebnis der Fourier-Transformation wird dann gefiltert. Alle Frequenzen mit einer Amplitude, die unterhalb einer bestimmten Grenze liegen, werden verworfen. Die verbleibenden Frequenzen werden an das Richtungsmodul übermittelt.
 
 \subsection{Richtungsmodul (Modul 3)}
-Die von der Fourier-Transformation bestimmten Tripel aus Frequenz, Phase und Amplitude werden vom Richtungsmodul weiterverarbeitet. In das Richtungsmodul können verschiedene Methoden der Richtungsbestimmung eingesetzt werden. Die ermittelten Richtungen werden an die Ausgabe weitergesendet, um sie dort auszugeben, oder zur Filterung des Audio-Signals zu verwenden.
-Das Richtungsmodul haben wir in C++ geschrieben und dabei \textit{LAPACK}~\cite{Anderson:1990:LPL:110382.110385}verwendet.
+Die von der Fourier-Transformation bestimmten Tripel aus Frequenz, Phase und Amplitude werden vom Richtungsmodul weiterverarbeitet. In das Richtungsmodul können verschiedene Methoden der Richtungsbestimmung eingesetzt werden. Die ermittelten Richtungen werden an das Ausgabemodul weitergesendet.
+Das Richtungsmodul haben wir in C++ geschrieben und dabei \textit{LAPACK}~\cite{Anderson:1990:LPL:110382.110385} verwendet.
 \pagebreak
 \subsection{Ausgabemodul (Modul 4)}
 \begin{wrapfigure}{r}{0.4\textwidth}
@@ -109,7 +109,7 @@ Das Richtungsmodul haben wir in C++ geschrieben und dabei \textit{LAPACK}~\cite{
     \caption{Screenshot unseres Beispiel-Ausgabemoduls\label{fig:output}}
 \end{wrapfigure}
 Wir haben ein Beispiel-Ausgabemodul in Javascript implementiert. Mit diesem ist es möglich, die Positionsdaten zu visualisieren, was das unmittelbare Überprüfen unseres Verfahrens stark vereinfacht. Die Programmiersprache Javascript haben wir gewählt, damit dieses Ausgabemodul auf jedem Endgerät mit modernem Webbrowser, wie z.B. Smartphones oder Laptops, ausgeführt werden kann.\\
-Die Simulation enthält eine weitere Implementation eines Ausgabemoduls. Auch diese visualisiert die bestimmten Richtungen, erlaubt es aber, diese auf der gleichen Benutzeroberfläche wie die Sollrichtung anzuzeigen. Dies gibt ein sehr direktes Feedback beim Entwickeln des Algorithmus zur Richtungsbestimmung. Dieses letzte Modul könnte allerdings, dank unseres modularen Konzeptes, bei Bedarf auch anders, z.B. als Plugin für eine \textit{Digital Audio Workstation} (\textit{DAW}), implementiert werden.
+Die Simulation enthält eine weitere Implementation eines Ausgabemoduls. Auch dieses visualisiert die bestimmten Richtungen, erlaubt es aber, diese auf der gleichen Benutzeroberfläche wie die Sollrichtung anzuzeigen. Dies gibt ein sehr direktes Feedback beim Entwickeln des Algorithmus zur Richtungsbestimmung. Dieses letzte Modul könnte allerdings, dank unseres modularen Konzeptes, bei Bedarf auch anders, z.B. als Plugin für eine \textit{Digital Audio Workstation} (\textit{DAW}), implementiert werden.
 
 \subsection{Zentrale Steuerung}
 Um die Konfiguration der einzelnen Module zu vereinfachen und schneller an neue Situationen anpassen zu können, haben wir ein Programm entwickelt, dass alle Module mit der gewünschten Konfiguration startet und mit dem man alle Module konfigurieren kann. Außerdem überwacht das Programm die Ausführung aller Module, gibt etwaige Fehlermeldungen aus und startet die einzelnen Module nach kritischen Fehlern neu.
