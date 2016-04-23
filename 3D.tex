@@ -94,8 +94,8 @@ Damit erhält man das Least Squares Problem:
 \begin{equation}
     \min_{\vec{\Delta{s}_i}}{\norm{A_i\vec{\Delta{s}_i} - b}^2}
 \end{equation}
-Die aus dem Least Squares Problem resultierende Matrix kann man mit der Householdertransformation~\cite{householder2006principles} in eine bidiaogonale Form bringen. Dann kann man das über die Singulärwertzerlegung das durch die Matrix beschriebene Gleichungssystem lösen und durch Umkehren der Householdertransformation die Lösung des ursprünglichen Gleichungssystem erhalten. Durch die Verwendung von mehr als vier Mikrofonen wird die Richtungsbestimmung dann nochmals genauer.
-\subsection{Zusammenfassen von ähnlichen Richtungen}
+Die aus dem Least Squares Problem resultierende Matrix kann man mit der Householdertransformation~\cite{householder2006principles} in eine bidiagonale Form bringen. Dann kann man das über die Singulärwertzerlegung das durch die Matrix beschriebene Gleichungssystem lösen und durch Umkehren der Householdertransformation die Lösung des ursprünglichen Gleichungssystem erhalten. Durch die Verwendung von mehr als vier Mikrofonen wird die Richtungsbestimmung dann nochmals genauer.\todo{wird u.a in ...beschrieben}
+\subsection{Verbesserung durch agglomeratives Clusterverfahren}
 Signale in der Echtwelt bestehen aus vielen verschiedenen Frequenzen, dadurch erhält man anstatt einer Richtung für eine Schallquelle, wie zum Beispiel eines sprechenden Menschen, nicht nur eine Richtung, sondern viele ähnliche Richtungen. Um die ermittelten Richtungen zu verdeutlichen fassen wir ähnliche Richtungen zusammen. Dazu verwenden wir ein agglomeratives Clusterverfahren\todo{find citation} mit der Summe der minimalen Winkel zwischen zwei Clustern als Wert für Unähnlichkeit. Von jeder Frequenz werden die letzten zehn Richtungen gespeichert und diese fließen in die Clusterbildung mit ein. Um geringe Änderungen in der Richtung auszugleichen, wird außerdem ein laufendes Mittel der Richtung für jede Frequenz über drei Richtungen gebildet. Die Richtung eines Clusters wird über ein nach den Amplituden gewichtetes Mittel aus allen zu dem Cluster gehörenden Richtungen berechnet.
 
 \begin{figure}[H]

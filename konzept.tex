@@ -7,7 +7,7 @@ Unser Konzept sieht vier Module vor, welche über TCP/IP und Websockets verbunde
 	\begin{tabular}{ll}
       Mensch            & Unser Verfahren                                   \\ \midrule
       Ohren             & Mikrofonarray                              \\
-      Haarzellen im Ohr & Fourier Transformation                     \\
+      Haarzellen Basilarmembran im Ohr & Fourier Transformation                     \\
       Richtungsbestimmung im Gehirn            & Computeralgorithmus zur Richtungsbestimmung                       \\
       Selektives Hören  & Weiterverarbeitung durch Programme Dritter
 	\end{tabular}
@@ -22,7 +22,7 @@ Im zweiten Modul der Kette wird das Signal, welches aus dem ersten Modul stammt,
 In diesem Modul werden außerdem Frequenzen, welche nicht oder nur sehr leise in dem Eingangssignal vorkommen, herausgefiltert, um das Rauschen und den benötigten Rechenaufwand in den nächsten Modulen zu verringern.
 
 \subsection{Modul 3: Richtungsbestimmung}
-Das dritte Modul empfängt die Daten des vorherigen Moduls und errechnet zunächst für jede Frequenz aus den transformierten Daten den Gangunterschied zwischen den Signalen der Mikrofone. Aus diesen werden dann die möglichen Ursprungsrichtungen der einzelnen Sinusschwingungen ermittelt. Da dieser Vorgang für jede Frequenz einzeln vorgenommen wird, können auch mehrere Schallquellen mit unterschiedlichen Frequenzen gleichzeitig untersucht werden. Im menschlichen Gehör wird diese Richtungsbestimmung durch Prozesse im Gehirn durchgeführt.
+Das dritte Modul empfängt die Daten des vorherigen Moduls und errechnet zunächst für jede Frequenz aus den transformierten Daten den Gangunterschied zwischen den Signalen der Mikrofone. Aus diesen werden dann die möglichen Ursprungsrichtungen der einzelnen Sinusschwingungen ermittelt. Da dieser Vorgang für jede Frequenz einzeln vorgenommen wird, können auch mehrere Schallquellen mit unterschiedlichen Frequenzen gleichzeitig untersucht werden. Im menschlichen Gehör wird diese Richtungsbestimmung durch Prozesse im Gehirn, die Intensitäts- und Laufzeitdifferenzen ausnutzen, durchgeführt.
 
 \subsection{Modul 4: Ausgabe\label{sec:module4}}
 Das letzte Modul in der Signalkette ist die Ausgabe. Sie bekommt die fertig gruppierten Messergebnisse über eine Netzwerkverbindung und bereitet sie für den Nutzer auf. Dieses Modul kann auf die jeweilige Anwendung angepasst werden und es ist möglich mehrere Output-Module mit dem gleichen Richtungsmodul verbunden werden. Auch Endanwendungen, die das Richtungshören verwenden wollen, sind Ausgabemodule.\\
