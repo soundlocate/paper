@@ -48,6 +48,9 @@
 \titleformat{\paragraph}{\normalfont\normalsize\bfseries}{}{}{}
 \titlespacing{\paragraph}{0pt}{1em}{0pt}
 
+%hack
+\setcounter{tocdepth}{10}
+
 \addbibresource{bib.bib}
 
 \title{Akustische Richtungsbestimmung}
@@ -69,6 +72,11 @@
 \newgeometry{top=2.5cm, left=2.5cm, right=2.5cm, bottom=2cm}
 \newpage
 \tableofcontents
+
+\iffalse
+
+\fi
+
 \thispagestyle{empty}
 
 \newpage
